@@ -5,7 +5,8 @@ class DNA {
 	constructor(tg) {
 		this.fitness = 0;
 		this.genes = [];
-		for (let i = 0; i < tg.length; i++) {
+		this.target = tg;
+		for (let i = 0; i < this.target.length; i++) {
 			this.genes[i] = chars[Math.floor(Math.random() * chars.length)];
 		}
 	}
