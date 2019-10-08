@@ -11,11 +11,19 @@
 
 	<body>
 		<section class="info">
-			<h1>Generation: <span id="generation"></span></h1>
-			<h1>Mutation Rate: <span id="mutation"></span></h1>
-			<h1>Average Fitness: <span id="avg"></span></h1>
-			<h1>Best Fitness: <span id="highest-fit"></span></h1>
-			<h1>Best:<br><span id="highest"></span></h1>
+			<h1>Generation: <span id="generation">...</span></h1>
+			<h1>Mutation Rate: <span id="mutation">...</span></h1>
+			<h1>Average Fitness: <span id="avg">...</span></h1>
+			<h1>Best Fitness: <span id="highest-fit">...</span></h1>
+			<h1>Best:<br><span id="highest">"..."</span></h1>
+			<div>
+				<h1>Choose a target string:</h1>
+				<input type="text" id="target">
+				<h1>Choose a population size:</h1>
+				<input type="number" id="popsize">
+				<br>
+				<button onclick="begin()">Begin!</button>
+			</div>
 		</section>
 
 		<section class="list">

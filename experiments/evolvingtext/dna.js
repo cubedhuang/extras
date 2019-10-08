@@ -2,10 +2,10 @@ const chars = ["%","@","/","'","!"," ",",","-",".","0","1","2","3","4","5","6","
 
 class DNA {
 	// Create DNA randomly.
-	constructor() {
+	constructor(tg) {
 		this.fitness = 0;
 		this.genes = [];
-		for (let i = 0; i < target.length; i++) {
+		for (let i = 0; i < tg.length; i++) {
 			this.genes[i] = chars[Math.floor(Math.random() * chars.length)];
 		}
 	}
@@ -14,17 +14,17 @@ class DNA {
 	calcFitness() {
 		let score = 0;
 		for (let i = 0; i < this.genes.length; i++) {
-			if (this.genes[i] == target[i]) {
+			if (this.genes[i] == this.target[i]) {
 				score++
 			}
 		}
-		this.fitness = score / target.length;
+		this.fitness = score / this.target.length;
 		this.fitness **= 2;
 	}
 	
 	// Crossover
 	crossover(partner) {
-		let child = new DNA();
+		let child = new DNA(this.target);
 		let midpoint = Math.floor(Math.random() * (this.genes.length + 1));
 		for (let i = 0; i < this.genes.length; i++) {
 			if (i > midpoint) child.genes[i] = this.genes[i];

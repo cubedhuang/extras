@@ -1,12 +1,12 @@
-let totalPopulation = 3000;
+let totalPopulation;
+let target;
+
+let mutationRate;
+
 let population;
 let matingPool;
 
-let target = "To be, or not to be? That's the question. I think. Right? Well, it doesn't matter since this is just the target value for stuff.";//"This is a test to see how long this genetic algorithm will take to calculate this string. If you are reading this, it likely succeeded.";
-let mutationRate = 1 / (target.length * totalPopulation / 100);
-document.getElementById("mutation").innerHTML = mutationRate.toFixed(8);
-
-let highest = new DNA();
+let highest;
 let generation = 0;
 let fitSum = 0;
 
@@ -14,10 +14,9 @@ let fitSum = 0;
 function startPop() {
 	population = [];
 	for (let i = 0; i < totalPopulation; i++) {
-		population[i] = new DNA();
+		population[i] = new DNA(target);
 	}
 }
-startPop();
 
 function randInt(a) {
 	return Math.floor(Math.random() * a);
@@ -32,7 +31,7 @@ function next() {
 	// Step 2a: Calculate fitness.
 
 	fitSum = 0;
-	highest = new DNA();
+	highest = new DNA(target);
 	for (let i = 0; i < population.length; i++) {
 		population[i].calcFitness();
 		fitSum += population[i].fitness;
@@ -101,6 +100,19 @@ function display() {
 	popDisplay.innerHTML = html;
 }
 
-setTimeout(() => {
+function begin() {
+	try {
+		target = document.getElementById("target").value;
+		totalPopulation = parseInt(document.getElementById("popsize").value);
+	} catch (err) {
+		alert(err);
+		throw err;
+	}
+	mutationRate = 1 / (target.length * totalPopulation / 100);
+	document.getElementById("mutation").innerHTML = mutationRate.toFixed(8);
+	startPop();
+	highest = new DNA(target);
 	requestAnimationFrame(next);
-}, 0)
+}
+// setTimeout(() => {
+// }, 0)
