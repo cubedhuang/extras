@@ -1,0 +1,34 @@
+* {
+	font-family: /*'Fira Code', 'Courier New', Courier,*/ monospace;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+body {
+	padding: 20px 50px;
+	margin: 0 auto;
+}
+
+section {
+	float: left;
+	padding: 0 15px;
+	font-size: 16px;
+}
+section.info {
+	width: 30%;
+}
+section.list {
+	width: 70%;
+}
+
+section.info, section.info * {
+	text-align: right;
+	font-size: 24px;
+	font-weight: normal;
+}
+h1 #highest {
+	font-size: 16px;
+}

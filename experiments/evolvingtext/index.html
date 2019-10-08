@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Genetic Text</title>
+
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<section class="info">
+			<h1>Generation: <span id="generation"></span></h1>
+			<h1>Mutation Rate: <span id="mutation"></span></h1>
+			<h1>Average Fitness: <span id="avg"></span></h1>
+			<h1>Best Fitness: <span id="highest-fit"></span></h1>
+			<h1>Best:<br><span id="highest"></span></h1>
+		</section>
+
+		<section class="list">
+			<pre><div id="population"></div></pre>
+		</section>
+
+		<script src="dna.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
