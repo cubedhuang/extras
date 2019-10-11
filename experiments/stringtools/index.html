@@ -18,6 +18,7 @@
 		<button onclick="capital()">capitalize words</button>
 		<button onclick="uppercase()">uppercase words</button>
 		<button onclick="lowercase()">lowercase words</button>
+		<button onclick="ranCaps()">random caps</button>
 
 		<p>tell me if you want more ok bye</p>
 
@@ -26,6 +27,10 @@
 
 			function reverse() {
 				textarea.value = textarea.value.split("").reverse().join("");
+			}
+
+			function shuffle() {
+				textarea.value = textarea.value.split("").sort(() => Math.round(Math.random()) - 0.5).join("");
 			}
 
 			function capital() {
@@ -39,8 +44,8 @@
 				textarea.value = textarea.value.toLowerCase();
 			}
 
-			function shuffle() {
-				textarea.value = textarea.value.split("").sort(() => Math.round(Math.random()) - 0.5).join("");
+			function ranCaps() {
+				textarea.value = textarea.value.split("").map(a => Math.random() > 0.5 ? a.toUpperCase() : a.toLowerCase()).join("");
 			}
 		</script>
 	</body>
