@@ -1,0 +1,39 @@
+/* font!?!?!??!?! */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+* { /* big brain: normalizing stuff */
+	margin: 0;
+	padding: 0;
+}
+
+.hidden { /* self-explanatory */
+	display: none;
+}
+
+/* fancy margin css, eh? */
+html {
+	width: 100%;
+
+	/* font!!!!!!! */
+	font-size: 20px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif; /* sans undertale */
+}
+body {
+	max-width: 96%;
+	width: 1140px;
+	margin: 20px auto;
+}
+
+p {
+	margin-top: 16px;
+}
+
+/* fixing headers with magic */
+h1 {
+	font-size: 3em;
+	margin-bottom: 16px;
+}
+h2 {
+	font-size: 2em;
+	margin-bottom: 16px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>String Tools</title>
+		<link rel="stylesheet" href="../../style.css">
+	</head>
+	<body>
+		<h2>string tools</h2>
+		<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
+		<br>
+		<!-- this is bad practice, dont do it -->
+		<button onclick="reverse()">reverse</button>
+		<button onclick="shuffle()">shuffle letters</button>
+		<br>
+		<button onclick="capital()">capitalize words</button>
+		<button onclick="uppercase()">uppercase words</button>
+		<button onclick="lowercase()">lowercase words</button>
+
+		<p>tell me if you want more ok bye</p>
+
+		<script>
+			const textarea = document.getElementById("str");
+
+			function reverse() {
+				textarea.value = textarea.value.split("").reverse().join("");
+			}
+
+			function capital() {
+				textarea.value = textarea.value.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+			}
+
+			function uppercase() {
+				textarea.value = textarea.value.toUpperCase();
+			}
+			function lowercase() {
+				textarea.value = textarea.value.toLowerCase();
+			}
+
+			function shuffle() {
+				textarea.value = textarea.value.split("").sort(() => Math.round(Math.random()) - 0.5).join("");
+			}
+		</script>
+	</body>
+</html>
