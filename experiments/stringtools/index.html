@@ -18,7 +18,10 @@
 		<button onclick="capital()">capitalize words</button>
 		<button onclick="uppercase()">uppercase words</button>
 		<button onclick="lowercase()">lowercase words</button>
+		<br>
 		<button onclick="ranCaps()">random caps</button>
+		<button onclick="evenCaps()">every other caps</button>
+		<button onclick="wordEvenCaps()">every other caps for words</button>
 
 		<p>tell me if you want more ok bye</p>
 
@@ -34,7 +37,7 @@
 			}
 
 			function capital() {
-				textarea.value = textarea.value.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+				textarea.value = textarea.value.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 			}
 
 			function uppercase() {
@@ -46,6 +49,13 @@
 
 			function ranCaps() {
 				textarea.value = textarea.value.split("").map(a => Math.random() > 0.5 ? a.toUpperCase() : a.toLowerCase()).join("");
+			}
+			function evenCaps() {
+				textarea.value = textarea.value.split("").map((a, i) => i % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join("");
+			}
+			function wordEvenCaps() {
+				textarea.value = textarea.value.split(" ").
+					map(word => word.split("").map((a, i) => i % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join("")).join(" ");
 			}
 		</script>
 	</body>
