@@ -22,6 +22,8 @@
 		<button onclick="ranCaps()">random caps</button>
 		<button onclick="evenCaps()">every other caps</button>
 		<button onclick="wordEvenCaps()">every other caps for words</button>
+		<br>
+		<button onclick="spaces()">spaces between characters</button>
 
 		<p>tell me if you want more ok bye</p>
 
@@ -56,6 +58,10 @@
 			function wordEvenCaps() {
 				textarea.value = textarea.value.split(" ").
 					map(word => word.split("").map((a, i) => i % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join("")).join(" ");
+			}
+
+			function spaces() {
+				textarea.value = textarea.value.split("").join(" ");
 			}
 		</script>
 	</body>
