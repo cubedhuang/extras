@@ -1,0 +1,29 @@
+@import url("../../style.css");
+
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+button {
+	display: block;
+	width: 100%;
+	padding: 20px;
+	border: 1px solid black;
+	border-radius: 1000px;
+	background: white;
+	font-size: 1.1em;
+	font-weight: 700;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+button:hover, button:focus {
+	background-color: azure;
+	outline: none
+}
+
+input[type="range"] {
+	width: 100%;
+	margin-bottom: 10px;
+	display: block;
+}
