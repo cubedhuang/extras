@@ -15,9 +15,11 @@ let stopper;
 
 const kick = new Howl({
 	src: ['./audio/kick.wav'],
+	volume: 2
 });
 const hat = new Howl({
 	src: ['./audio/hat.wav'],
+	volume: 3
 });
 
 slider.addEventListener("input", function() {
