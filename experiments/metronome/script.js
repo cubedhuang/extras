@@ -71,3 +71,5 @@ function next() {
 function start() {
 	stopper = setTimeout(next, interval);
 }
+
+start();

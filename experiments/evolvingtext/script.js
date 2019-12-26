@@ -66,9 +66,14 @@ function next() {
 			let partnerA = matingPool[a];
 			let partnerB = matingPool[b];
 			// Crossover
-			let child = partnerA.crossover(partnerB);
+			let child;
+			if (partnerA.fitness === highest.fitness && partnerB.fitness === highest.fitness) child = partnerA.crossover(partnerB);
+			if (partnerA.fitness === highest.fitness) child = partnerA.crossover(partnerA);
+			if (partnerB.fitness === highest.fitness) child = partnerB.crossover(partnerB);
+			else child = partnerA.crossover(partnerB);
 			// Mutation
-			child.mutate(mutationRate);
+			if (!(partnerA.fitness === highest.fitness || partnerB.fitness === highest.fitness)) child.mutate(mutationRate);
+			else if(Math.random() < mutationRate) child.mutate(mutationRate);
 
 			// Overwriting population members with new generation
 			population[i] = child;
@@ -101,6 +106,7 @@ function display() {
 }
 
 function begin() {
+	generation = 0;
 	try {
 		target = document.getElementById("target").value;
 		totalPopulation = parseInt(document.getElementById("popsize").value);
@@ -108,7 +114,7 @@ function begin() {
 		alert(err);
 		throw err;
 	}
-	mutationRate = 1 / (target.length * totalPopulation / 100);
+	mutationRate = (1/Math.E) / (target.length);
 	document.getElementById("mutation").innerHTML = mutationRate.toFixed(8);
 	startPop();
 	highest = new DNA(target);
