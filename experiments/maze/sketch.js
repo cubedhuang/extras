@@ -7,7 +7,7 @@
  * 2. While there are unvisited cells
  *    1. If the current cell has any neighbours which have not been visited
  *       1. Choose one of the unvisited neighbours as the next cell
- * 	     2. Push the current cell to the stack
+ *       2. Push the current cell to the stack
  *       3. Remove the wall between the current cell and the next cell
  *       4. Mark the next cell as the current cell and mark it as visited
  *    2. Else, if the stack is not empty
