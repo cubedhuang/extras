@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>Tic Tac Toe Bot</title>
+
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="./style.css">
+	</head>
+
+	<body>
+		<h1 style="text-align: center;">Tic Tac Toe</h1>
+
+		<div id="app">
+			<div class="chooser" v-if="!started">
+				<button class="chooser" @click="start(2)">
+					Play as X
+				</button>
+				<button class="chooser" @click="start(1)">
+					Play as O
+				</button>
+			</div>
+			<div v-if="started">
+				<h2 style="text-align: center;">
+					You are {{ symbol(player) }}. <br>
+					Computer is {{ symbol(computer) }}.
+				</h2>
+				<table id="board">
+					<tr>
+						<td>
+							<button @click="mark(0)" :class="board[0] ? 'full' : 'free'">
+								{{ symbol(board[0]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(1)" :class="board[1] ? 'full' : 'free'">
+								{{ symbol(board[1]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(2)" :class="board[2] ? 'full' : 'free'">
+								{{ symbol(board[2]) }}
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button @click="mark(3)" :class="board[3] ? 'full' : 'free'">
+								{{ symbol(board[3]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(4)" :class="board[4] ? 'full' : 'free'">
+								{{ symbol(board[4]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(5)" :class="board[5] ? 'full' : 'free'">
+								{{ symbol(board[5]) }}
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button @click="mark(6)" :class="board[6] ? 'full' : 'free'">
+								{{ symbol(board[6]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(7)" :class="board[7] ? 'full' : 'free'">
+								{{ symbol(board[7]) }}
+							</button>
+						</td>
+						<td>
+							<button @click="mark(8)" :class="board[8] ? 'full' : 'free'">
+								{{ symbol(board[8]) }}
+							</button>
+						</td>
+					</tr>
+				</table>
+				<div style="text-align: center;" v-if="!inGame">
+					<h2 v-if="winner > 0">{{ symbol(winner) }} Wins!</h2>
+					<h2 v-else>It's a tie!</h2>
+					<button class="restart" @click="restart">Restart</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
