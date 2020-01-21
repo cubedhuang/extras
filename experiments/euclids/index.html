@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>Euclid's Algorithm</title>
+
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="./style.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<h2 style="text-align: center;">Greatest Common Divisor and Least Common Multiple</h2>
+			<input type="number" v-model="in1" placeholder="Any positive integer...">
+			<input type="number" v-model="in2" placeholder="Any positive integer...">
+			<button class="calculate" @click="calc(false)">Calculate GCD</button>
+			<button class="calculate" @click="calc(true)">Calculate LCM</button>
+			<h3 style="margin-left: 1%">Output:</h3>
+			<p style="margin-left: 1%">{{ output }}</p style="margin-left: 1%">
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="decimal.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
