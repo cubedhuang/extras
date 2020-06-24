@@ -124,22 +124,35 @@ class Cell {
 	show() {
 		let x = this.i * w;
 		let y = this.j * w;
+				
+		noStroke();
+
+		let render = false;
+
+		if (!this.visited) {
+			fill(0, 100);
+			render = true;
+		} else if (stack.includes(this)) {
+			fill(0, 255, 255, 100);
+			render = true;
+		}
+
+		if (this.i === 0 && this.j === 0) {
+			fill(255, 255, 0);
+			render = true;
+		}
+		if (this.i === cols - 1 && this.j === rows - 1) {
+			fill(0, 255, 0);
+			render = true;
+		}
 		
+		if (render) rect(x, y, w, w);
+
 		stroke(0);
 		if (this.walls[0]) line(x    , y    , x + w, y);
 		if (this.walls[1]) line(x + w, y    , x + w, y + w);
 		if (this.walls[2]) line(x + w, y + w, x    , y + w);
 		if (this.walls[3]) line(x    , y + w, x    , y);
-		
-		if (!this.visited) {
-			noStroke();
-			fill(0, 100);
-			rect(x, y, w, w);
-		} else if (stack.includes(this)) {
-			noStroke();
-			fill(0, 255, 255, 100);
-			rect(x, y, w, w);
-		}
 	}
 
 	highlight() {
