@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>Quadratic Formula</title>
+
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="./style.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- this is really bad practice but whatev -->
+			<h2 style="text-align: center;">Quadratic Formula Solver</h2>
+			<div>
+				<input type="number" v-model="inA" placeholder="Enter a...">
+				<input type="number" v-model="inB" placeholder="Enter b...">
+				<input type="number" v-model="inC" placeholder="Enter c...">
+				<button class="calculate" @click="calc()">Calculate</button>
+			</div>
+
+			<h3 style="margin-left: 1%">Output:</h3>
+			<p style="margin-left: 1%">
+				{{ out1.toString() }}
+				<template v-if="out1.toString() !== out2.toString()">
+					and {{ out2.toString() }}
+				</template>
+			</p>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- dom stuff -->
+		<script src="https://unpkg.com/mathjs@7.1.0/dist/math.min.js"></script> <!-- actual math :) -->
+		<script src="script.js"></script> <!-- calculations :) -->
+	</body>
+</html>
