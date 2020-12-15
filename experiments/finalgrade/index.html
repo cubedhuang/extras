@@ -18,11 +18,17 @@
 
 	<body>
 		<h2>final grade calculator</h2>
+		
 		<p>
 			i do the math with variables and plug them in so that i dont have to do that math with actual numbers
-			<br>
-			put all the values in percentages i havent done anything for weird infinity NaN edge cases yet
 		</p>
+		<p>
+			put all the values in percentages
+		</p>
+		<p>
+			i havent done anything for weird infinity NaN edge cases yet
+		</p>
+
 		<p>
 			your current grade:
 			<br>
@@ -52,9 +58,9 @@
 			const outputEl = document.getElementById("output");
 
 			function calculate() {
-				const current = parseInt(currentEl.value) / 100;
-				const wanted = parseInt(wantedEl.value) / 100;
-				const amount = parseInt(amountEl.value) / 100;
+				const current = parseFloat(currentEl.value) / 100;
+				const wanted = parseFloat(wantedEl.value) / 100;
+				const amount = parseFloat(amountEl.value) / 100;
 
 				const newOldPerc = current * (1 - amount);
 				const newReqPerc = wanted - newOldPerc;
