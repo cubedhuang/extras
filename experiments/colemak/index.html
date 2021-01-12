@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>colemak converter</title>
+		<link rel="stylesheet" href="../../style.css">
+	</head>
+	
+	<body>
+		<h2>colemak converter</h2>
+		
+		<p style="font-size:smaller">
+			the keyboard layout colemak shifts the keys around into a different
+			location than they would be on a traditional qwerty keyboard.
+			however, if you're typing with the colemak layout on but you press
+			the keys in the location they would be in a qwerty layout, you end
+			up with a bunch of gibberish. this tool just lets you decipher (and
+			create) whatever colemak-qwerty gibberish you want.
+		</p>
+		<p style="font-size:smaller">
+			you can even convert it several times and use it as a simple
+			cipher. additionally, if you cycle it to/from colemak exactly 42 times,
+			you'll end up with the same text you started with.
+		</p>
+		
+		<p>
+			<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
+		</p>
+
+		<p>
+			<button onclick="swap(qwerty, colemak)">to colemak</button>
+			<button onclick="swap(colemak, qwerty)">to qwerty</button>
+		</p>
+
+		<script>
+			const qwerty = `q w e r t y u i o p a s d f g h j k l ; z x c v b n m
+				Q W E R T Y U I O P A S D F G H J K L : Z X C V B N M`.split(/\s+/g);
+			const colemak = `q w f p g j l u y ; a r s t d h n e i o z x c v b k m
+				Q W F P G J L U Y : A R S T D H N E I O Z X C V B K M`.split(/\s+/g);
+
+			const textarea = document.getElementById("str");
+
+			function swap(from, to) {
+				const str = textarea.value;
+				let newStr = "";
+				for (const char of str) {
+					newStr += to[from.indexOf(char)] || char;
+				}
+				textarea.value = newStr;
+			}
+		</script>
+	</body>
+</html>
