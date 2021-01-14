@@ -87,7 +87,7 @@
 						disArr();
 						tries += speed - i - 1;
 						triesEl.innerText = tries;
-						prob = 1 - Math.pow(1 - (1 / fact(length)), tries);
+						prob = 1 - Math.pow(1 - (1 / fact(length)), tries + 1);
 						probEl.innerText = (prob * 100).toFixed(2) + "%";
 						return;
 					}
