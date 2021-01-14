@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>bogosort</title>
+		<link rel="stylesheet" href="../../style.css">
+	</head>
+
+	<body>
+		<h2>bogosorter</h2>
+
+		<p>
+			array length:
+			<input type="range" id="length" min="5" max="12" value="5" step="1" oninput="checkLength()">
+		</p>
+		<pre id="lengthout">5</pre>
+
+		<p>list:</p>
+		<pre id="array"></pre>
+		
+		<p>tries:</p>
+		<pre id="tries">0</pre>
+
+		<p>probability of being sorted:</p>
+		<pre id="prob">N/A</pre>
+
+		<p>
+			speed:
+			<input type="range" id="speed" min="1" max="1" value="1" step="1" oninput="checkSpeed()">
+		</p>
+		<pre id="speedout">1</pre>
+
+		<p>
+			<button onclick="toggle()">toggle sorting</button>
+			<button onclick="reset()">reset</button>
+		</p>
+
+		<script>
+			let arrayEl = document.getElementById("array");
+			let triesEl = document.getElementById("tries");
+			let probEl = document.getElementById("prob");
+			let speedEl = document.getElementById("speed");
+			let speedOutEl = document.getElementById("speedout");
+			let lengthEl = document.getElementById("length");
+			let lengthOutEl = document.getElementById("lengthout");
+
+			let array = [1, 2, 3, 4, 5];
+			let length = 5;
+			let tries = 0;
+			let prob;
+			let speed = 1;
+
+			let going = false;
+			let canceller;
+
+			function shuffle(updateEl = true) {
+				let i = length, ri;
+				while (--i) {
+					ri = (Math.random() * i) | 0;
+
+					[array[i], array[ri]] = [array[ri], array[i]];
+				}
+				if (updateEl) disArr();
+			}
+			
+			function disArr() {
+				arrayEl.innerText = array.join("\n");
+			}
+
+			function check() {
+				let prev = -1;
+				for (num of array) {
+					if (num > prev) prev = num;
+					else return false;
+				}
+				return true;
+			}
+
+			function update() {
+				let i = speed;
+
+				while (i--) {
+					if (check()) {
+						toggle(false);
+						disArr();
+						tries += speed - i - 1;
+						triesEl.innerText = tries;
+						prob = 1 - Math.pow(1 - (1 / fact(length)), tries);
+						probEl.innerText = (prob * 100).toFixed(2) + "%";
+						return;
+					}
+					shuffle(false);
+				}
+
+				disArr();
+				tries += speed;
+				triesEl.innerText = tries;
+				prob = 1 - Math.pow(1 - (1 / fact(length)), tries);
+				probEl.innerText = (prob * 100).toFixed(2) + "%";
+				
+				if (going) canceller = requestAnimationFrame(update);
+			}
+
+			function checkSpeed() {
+				speed = parseInt(speedEl.value);
+				speedOutEl.innerText = speed;
+			}
+
+			function checkLength() {
+				reset();
+
+				length = parseInt(lengthEl.value);
+				lengthOutEl.innerText = length;
+
+				array = [];
+				let i = length + 1;
+				while (--i) {
+					array.push(i);
+				}
+
+				shuffle();
+				speedEl.max = Math.max((fact(length) / 720) | 0, 5);
+				speedEl.value = Math.min(speed, parseInt(speedEl.max));
+				checkSpeed();
+			}
+
+			function fact(num) {
+				return num ? num * fact(num - 1) : 1;
+			}
+
+			function toggle(res = true) {
+				going = !going;
+				if (res && check()) {
+					shuffle();
+					tries = 0;
+					triesEl.innerText = tries;
+					probEl.innerText = "N/A";
+				}
+				if (going) update();
+				else cancelAnimationFrame(canceller);
+			}
+
+			function reset() {
+				if (going) toggle();
+
+				shuffle();
+				tries = 0;
+				triesEl.innerText = tries;
+				probEl.innerText = "N/A";
+			}
+
+			shuffle();
+			speedEl.max = Math.max((fact(length) / 720) | 0, 5);
+		</script>
+	</body>
+</html>
