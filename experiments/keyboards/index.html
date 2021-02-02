@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>keyboard place converter</title>
+		<link rel="stylesheet" href="../../style.css">
+	</head>
+	
+	<body>
+		<h2>keyboard place converter</h2>
+		
+		<p>
+			this used to be only for colemak and qwerty,
+			so the explanation only fits those two.
+			you can extend it to dvorak tho so it's fine
+		</p>
+
+		<h3>explanation</h3>
+		<p style="font-size:smaller">
+			the keyboard layout colemak shifts the keys around into a different
+			location than they would be on a traditional qwerty keyboard.
+			however, if you're typing with the colemak layout on but you press
+			the keys in the location they would be in a qwerty layout, you end
+			up with a bunch of gibberish. this tool just lets you decipher (and
+			create) whatever colemak-qwerty gibberish you want.
+		</p>
+		<p style="font-size:smaller">
+			you can even convert it several times and use it as a simple cipher.
+			for example, if you cycle it to/from colemak exactly 42 times,
+			you'll end up with the same text you started with.
+		</p>
+		<p style="font-size:smaller">
+			also this only supports main keyboard stuff so if you have other
+			symbols on your numpad that don't change, this might change it
+		</p>
+		
+		<p>
+			<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
+		</p>
+
+		<p>
+			<ol>
+				<li>
+					<button onclick="swap(qwerty, colemak)">qwerty to colemak</button>
+				</li>
+				<li>
+					<button onclick="swap(colemak, qwerty)">colemak to qwerty</button>
+				</li>
+				<li>
+					<button onclick="swap(qwerty, dvorak)">qwerty to dvorak</button>
+				</li>
+				<li>
+					<button onclick="swap(dvorak, qwerty)">dvorak to qwerty</button>
+				</li>
+				<li>
+					<button onclick="swap(colemak, dvorak)">colemak to dvorak</button>
+				</li>
+				<li>
+					<button onclick="swap(dvorak, colemak)">dvorak to colemak</button>
+				</li>
+			</ol>
+		</p>
+
+		<script>
+			const qwerty = `
+				- =
+				q w e r t y u i o p [ ] \
+				a s d f g h j k l ; '
+				z x c v b n m , . /
+				_ +
+				Q W E R T Y U I O P { } |
+				A S D F G H J K L : "
+				Z X C V B N M < > ?`.trim().split(/\s+/g);
+			const colemak = `
+				- =
+				q w f p g j l u y ; [ ] \
+				a r s t d h n e i o '
+				z x c v b k m , . /
+				_ +
+				Q W F P G J L U Y : { } |
+				A R S T D H N E I O "
+				Z X C V B K M < > ?`.trim().split(/\s+/g);
+			const dvorak = `
+				[ ]
+				' , . p y f g c r l / = \
+				a o e u i d h t n s -
+				; q j k x b m w v z
+				{ }
+				" < > P Y F G C R L ? + |
+				A O E U I D H T N S _
+				: Q J K X B M W V Z`.trim().split(/\s+/g);
+
+			const textarea = document.getElementById("str");
+
+			function swap(from, to) {
+				const str = textarea.value;
+				let newStr = "";
+				for (const char of str) {
+					newStr += to[from.indexOf(char)] || char;
+				}
+				textarea.value = newStr;
+			}
+		</script>
+	</body>
+</html>
