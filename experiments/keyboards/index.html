@@ -57,6 +57,7 @@
 				<option value="colemak" selected="selected">colemak</option>
 				<option value="dvorak">dvorak</option>
 			</select>
+			<button style="font-size:large;padding:0 5px" onclick="reverse()">⇆</button>
 		</p>
 		<p>
 			<button style="font-size:large;padding:5px" onclick="swap()">swap</button>
@@ -96,6 +97,10 @@
 			const textarea = document.getElementById("str");
 			const fromE = document.getElementById("from");
 			const toE = document.getElementById("to");
+
+			function reverse() {
+				[fromE.value, toE.value] = [toE.value, fromE.value];
+			}
 
 			function swap() {
 				const from = keyboards[fromE.value];
