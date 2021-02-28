@@ -17,6 +17,8 @@ html {
 	/* font!!!!!!! */
 	font-size: 20px;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif; /* sans undertale */
+	color: #222;
+	background: #fff;
 }
 body {
 	max-width: 96%;
@@ -40,4 +42,27 @@ h2 {
 h3 {
 	font-size: 1.6em;
 	margin-bottom: 12px;
+}
+h4 {
+	font-size: 1.3em;
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: #0984e3;
+	border-bottom: 1px solid #0984e3;
+	transition: color 0.2s, border 0.2s, font 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+a:hover {
+	color: #6c5ce7;
+	border-bottom: 1px solid transparent;
+	font-size: 120%;
+}
+
+li:not(:last-child) {
+    margin-bottom: 5px;
 }
