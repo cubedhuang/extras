@@ -60,7 +60,11 @@ a {
 a:hover {
 	color: #6c5ce7;
 	border-bottom: 1px solid transparent;
-	font-size: 120%;
+	font-size: 140%;
+}
+
+ul {
+	list-style: none;
 }
 
 li:not(:last-child) {

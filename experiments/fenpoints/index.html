@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>fen point counter</title>
+		<link rel="stylesheet" href="../../style.css">
+
+		<style>
+			input, button {
+				padding: 5px 2px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>fen point counter</h2>
+		
+		<p>
+			get a fen string from chess and paste it here for the material count
+		</p>
+
+		<p>
+			fen string:
+			<br>
+			<input type="text" name="fen" id="fen" style="width: 100%">
+		</p>
+
+		<p>
+			<button onclick="count()">count</button>
+		</p>
+
+		<p id="output"></p>
+
+		<script>
+			const values = new Map([
+				["Q", 9],
+				["R", 5],
+				["B", 3],
+				["N", 3],
+				["P", 1],
+				["q", -9],
+				["r", -5],
+				["b", -3],
+				["n", -3],
+				["p", -1],
+			]);
+			const fenEl = document.getElementById("fen");
+			const outputEl = document.getElementById("output");
+
+			function count() {
+				let value = 0;
+
+				for (const char of fenEl.value) {
+					value += values.get(char) || 0;
+				}
+
+				outputEl.innerText = value === 0 ? "the material count is even!" :
+					`${ value > 0 ? "white" : "black" } is up ${ Math.abs(value) } points of material!`;
+			}
+		</script>
+	</body>
+</html>
