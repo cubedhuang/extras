@@ -6,6 +6,87 @@
 
 		<title>bogosort</title>
 		<link rel="stylesheet" href="../../style.css">
+
+		<style>
+			html, body {
+				background: #171615;
+				color: #eee;
+			}
+			input[type="range"] {
+				-webkit-appearance: none;
+				width: 25%;
+				height: 8px;
+				background: #0008;
+				outline: none;
+				transition: background 0.2s;
+				display: block;
+				margin: 10px 0;
+			}
+
+			input[type="range"]:hover {
+				background: #fff2;
+			}
+
+			input[type="range"]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 16px;
+				height: 16px;
+				background: #fff8;
+				border: 0;
+				border-radius: 0;
+				transition: background 0.2s;
+			}
+			input[type="range"]::-webkit-slider-thumb:hover {
+				background: #fffb;
+			}
+
+			input[type="range"]::-moz-range-thumb {
+				width: 16px;
+				height: 16px;
+				background: #fff8;
+				transition: background 0.2s;
+				border: 0;
+				border-radius: 0;
+			}
+			input[type="range"]::-moz-range-thumb:hover {
+				background: #fffb;
+			}
+
+			button {
+				display: block;
+				margin-top: 10px;
+				padding: 10px;
+				font-size: 16px;
+				font-family: "Open Sans", Helvetica, Arial, sans-serif;
+				color: #eee;
+				border: 2px solid #0008;
+				border-radius: 0;
+				background: #0008;
+				transition: background 0.1s;
+			}
+			button:hover {
+				background: #fff2;
+			}
+			button:active {
+				background: #fff4;
+			}
+
+			button.copied {
+				border: 2px solid #0ff4;
+			}
+
+			.resetters * {
+				float: left;
+				margin-right: 10px;
+			}
+
+			.resetters::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -56,22 +137,21 @@
 			let canceller;
 
 			function shuffle(updateEl = true) {
-				let i = length, ri;
-				while (--i) {
-					ri = (Math.random() * i) | 0;
-
+				for (let i = 0; i < array.length - 1; i++) {
+					let ri = Math.floor(i + Math.random() * ((array.length - i)));
 					[array[i], array[ri]] = [array[ri], array[i]];
 				}
+
 				if (updateEl) disArr();
 			}
-			
+
 			function disArr() {
 				arrayEl.innerText = array.join("\n");
 			}
 
 			function check() {
 				let prev = -1;
-				for (num of array) {
+				for (const num of array) {
 					if (num > prev) prev = num;
 					else return false;
 				}
