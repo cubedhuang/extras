@@ -91,11 +91,11 @@ const popDisplay = document.getElementById("population");
 const highFitDisplay = document.getElementById("highest-fit");
 
 function display() {
-	highestDisplay.innerText = highest.getPhrase();
-	highFitDisplay.innerText = (highest.fitness).toFixed(3);
-	averageDisplay.innerText = (fitSum / totalPopulation).toFixed(3);
+	highestDisplay.textContent = highest.getPhrase();
+	highFitDisplay.textContent = (highest.fitness).toFixed(3);
+	averageDisplay.textContent = (fitSum / totalPopulation).toFixed(3);
 
-	genDisplay.innerText = generation;
+	genDisplay.textContent = generation;
 
 	let html = "";
 	for (let i = 0; i < population.length && i < 50; i++) {

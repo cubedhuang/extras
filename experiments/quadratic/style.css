@@ -1,42 +1,18 @@
-button.calculate {
-	background: #0984e3;
-	border: 1px solid #0984e3;
-	border-radius: 1000px;
-	display: block;
-	box-sizing: border-box;
-	font-size: 1.2em;
-	transition: background 0.2s, color 0.2s;
-	color: white;
-	text-align: center;
-	margin: 10px 1% 10px 1%;
-	padding: 8px 25px;
-	font-family: "Open Sans", Helvetica, Arial, sans-serif; /* sans undertale */
-	cursor: pointer;
-	width: 48%;
-	float: left;
-}
-button.calculate:hover, button.calculate:focus {
-	background: #a0d5fc;
-	color: #0984e3;
-	outline: none;
+.gap {
+	display: flex;
+	gap: 1em;
 }
 
-input[type="number"] {
-	background: white;
-	border: 1px solid #0984e3;
-	border-radius: 1000px;
-	display: block;
-	box-sizing: border-box;
-	font-size: 1.2em;
-	transition: background 0.2s, color 0.2s;
-	text-align: center;
-	margin: 10px 1% 10px 1%;
-	padding: 8px 25px;
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
-	width: 48%;
-	float: left;
+.gap * {
+	flex: 1;
 }
-input[type="number"]:focus {
-	background: white;
-	outline: none;
+
+h1 {
+	font-size: 2rem;
+}
+
+p {
+	width: 100%;
+	text-align: center;
+	margin: 0;
 }

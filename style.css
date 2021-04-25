@@ -1,72 +1,345 @@
-/* font!?!?!??!?! */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url("https://cubedhuang.com/css/modern-normalize.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Open+Sans:wght@300;400;600&display=swap');
 
-* { /* big brain: normalizing stuff */
-	margin: 0;
-	padding: 0;
+:root {
+	--base: #d63031;
+	--lightbg: linear-gradient(to top left, #fff2, #fff2);
+	--darkbg: linear-gradient(to top left, #0002, #0002);
+	--bg: #15171a;
+	--title-font: "Lexend Deca", Helvetica, sans-serif;
+	--text-font: "Open Sans", Helvetica, sans-serif;
+	font-size: calc(16px + 2 * ((100vw - 320px) / 680));
 }
 
-.hidden { /* self-explanatory */
-	display: none;
+/* stuff --------------------------- */
+
+* {
+	font-family: var(--text-font);
 }
 
-/* fancy margin css, eh? */
 html {
-	width: 100%;
-
-	/* font!!!!!!! */
-	font-size: 20px;
-	font-family: "Open Sans", Helvetica, Arial, sans-serif; /* sans undertale */
 	color: #222;
-	background: #fff;
 }
 body {
-	max-width: 96%;
-	width: 1140px;
-	margin: 20px auto;
+	background: var(--bg);
+	color: #fff;
+	font-family: var(--text-font);
+	text-rendering: optimizeLegibility;
+
+	overflow-x: hidden;
+	scrollbar-color: #fff4 #0004;
+	scrollbar-width: thin;
 }
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+	background: #fff4;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #fff3;
+}
+
+/* layout ------------------------------------------------ */
+
+.row {
+	width: min(100%, 1140px);
+	margin: 0 auto;
+	display: flex;
+	padding: 1em 0;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.row .col {
+	flex: 1 1 300px;
+	width: 100%;
+}
+
+section {
+	padding: 3em 2em;
+	background: var(--bg);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+section.top {
+	padding: 2em 0;
+	background: var(--base);
+	color: #fff;
+	margin-bottom: 1em;
+}
+
+section.top h1 {
+	margin-top: 1em;
+}
+
+section.top h1::after {
+	background: #fff;
+}
+
+/* components ------------------------------------------------------------- */
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--title-font);
+	text-transform: lowercase;
+	letter-spacing: 1px;
+	filter: drop-shadow(0 0 0.2em #fff8);
+	width: 100%;
+	text-align: center;
+}
+
+h1 {
+	color: #fff;
+	margin: 0;
+	font-size: 2.4rem;
+	word-spacing: 0.1em;
+	filter: drop-shadow(0 0 0.2em #fff8) drop-shadow(0 0 0.2em #fff4);
+}
+
+h2 {
+	font-size: 1.8rem;
+	word-spacing: 0.05em;
+}
+
+h3 {
+	font-size: 1.3rem;
+}
+
+:is(h2, h3)::after {
+	display: block;
+	height: 2px;
+	background: var(--base);
+	content: "";
+	margin: 0.5em auto;
+}
+
+h2::after {
+	width: 3em;
+}
+
+h3::after {
+	width: 2em;
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+/* game cards */
+
+.game-card {
+	color: white;
+	padding: 1em;
+	text-align: left;
+	background: var(--darkbg);
+	display: flex;
+	align-items: center;
+	margin-top: 0.5em;
+	border: none;
+	text-decoration: none;
+
+	transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.game-card:first-child {
+	margin-top: 0;
+}
+
+.game-card:hover {
+	transform: translateY(-0.1em);
+	box-shadow: 0 0.1em 0.5em #0004;
+	filter: none;
+}
+
+.game-card .text {
+	flex: 1;
+}
+
+.game-card .title {
+	font-family: var(--title-font);
+	display: block;
+	text-transform: lowercase;
+	filter: drop-shadow(0 0 0.2em #fff8);
+	margin-bottom: 0.1em;
+}
+
+.game-card .description {
+	font-size: 0.8rem;
+}
+
+/* arrow */
+
+.arrow {
+	transition: 0.2s transform, 0.2s filter;
+}
+
+:hover > .arrow {
+	transform: translateX(0.2em);
+	filter: drop-shadow(-0.4em 0 0 var(--base)) drop-shadow(0 0 0.5em #fffb);
+}
+
+.arrow span {
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 1em;
+	height: 1em;
+	--arrow-stroke: 2px;
+	--arrow-color: #fff;
+	transform: translateX(-0.2em) rotate(135deg);
+}
+
+.arrow span::before,
+.arrow span::after {
+	content: "";
+	position: absolute;
+	background: var(--arrow-color);
+	border-radius: 50px;
+}
+
+.arrow span::before {
+	width: var(--arrow-stroke);
+	height: 100%;
+}
+
+.arrow span::after {
+	height: var(--arrow-stroke);
+	width: 100%;
+}
+
+/* paragraph */
 
 p {
 	margin-top: 16px;
+	line-height: 1.5em;
 }
 
-/* fixing headers with magic */
-h1 {
-	font-size: 3em;
-	margin-bottom: 16px;
-}
-h2 {
-	font-size: 2em;
-	margin-bottom: 16px;
-}
-h3 {
-	font-size: 1.6em;
-	margin-bottom: 12px;
-}
-h4 {
-	font-size: 1.3em;
-	margin-bottom: 0;
-	margin-top: 10px;
-}
-
-a {
+a.link {
+	color: var(--base);
 	text-decoration: none;
-	color: #0984e3;
-	border-bottom: 1px solid #0984e3;
-	transition: color 0.2s, border 0.2s, font 0.2s;
-	transition-timing-function: ease-in-out;
+	border-bottom: 1px solid var(--base);
+	transition: border 0.2s, color 0.2s, filter 0.2s;
+	cursor: pointer;
 }
 
-a:hover {
-	color: #6c5ce7;
-	border-bottom: 1px solid transparent;
-	font-size: 140%;
+a.link:hover,
+a.link:active {
+	color: #fff;
+	border: transparent;
+	filter: drop-shadow(0 0 0.25em #fffb);
 }
 
 ul {
 	list-style: none;
+	line-height: 1.5em;
 }
 
-li:not(:last-child) {
-    margin-bottom: 5px;
+/* interactive */
+
+input[type="number"],
+input[type="text"],
+textarea,
+.button,
+button {
+	font-family: var(--title-font);
+	display: inline-block;
+	padding: 0.5em 0.75em;
+	border-radius: 0.5em;
+	border: 2px solid var(--base);
+	text-decoration: none;
+	user-select: none;
+
+	background-color: var(--bg);
+	color: var(--base);
+}
+
+/* BUTTONS */
+
+.button,
+button {
+	margin-bottom: 0.25em;
+	box-shadow: 0 0.25em 0 var(--base);
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s, filter 0.2s,
+		transform 0.1s, box-shadow 0.1s;
+}
+
+.button:hover,
+button:hover {
+	background: var(--base);
+	color: #fff;
+	filter: drop-shadow(0 0 0.2em #fff4);
+}
+
+.button:active,
+button:active {
+	transform: translateY(0.2em);
+	box-shadow: 0 0.05em 0 var(--base);
+}
+
+/* INPUTS */
+
+input[type="number"],
+input[type="text"],
+textarea {
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+:is(
+	input[type="number"],
+	input[type="text"],
+	textarea
+):focus {
+	outline: none;
+	box-shadow: 0 0 0.5em #fffb;
+	background: var(--base);
+	color: #eee;
+}
+
+:is(
+	input[type="number"],
+	input[type="text"],
+	textarea
+):focus::placeholder {
+	color: #bbb;
+}
+
+/* footer */
+
+footer {
+	background: #111;
+	color: #bbb;
+	padding: 0.5em;
+}
+
+footer .row {
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+footer a.link {
+	background: inherit;
+	color: #bbb;
+	border-bottom: 1px solid #bbb;
+	border-radius: 0;
+	padding: 0;
+}
+
+footer p {
+	text-align: center;
+	margin: 0;
+	font-size: 0.7em;
 }

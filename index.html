@@ -19,54 +19,186 @@
 		<title>more experiments</title>
 
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="home.css">
 	</head>
 
 	<body>
-		<h1>more experiments</h1>
-		<p>
-			this page has more demonstrative stuff and i didn't make anything too interaction-oriented
-			like games and stuff
-		</p>
+		<section class="section-banner">
+			<canvas id="banner-canvas"></canvas>
 
-		<h4>simulations</h4>
-		<ul>
-			<li><a href="https://boids.cubedhuang.com">boids</a> - 2d flocking simulation</li>
-			<li><a href="./experiments/evolvingtext/">genetic text</a> - this is pretty bad, just evolution - of text</li>
-		</ul>
-		
-		<h4>fun</h4>
-		<ul>
-			<li><a href="./experiments/bogosort/">bogosort</a> - demonstration of the best sorting algorithm</li>
-			<li><a href="./experiments/tictactoe/">tic tac toe bot</a> - beat a bot, it's pretty hard</li>
-			<li><a href="./experiments/maze/">maze generator</a> - it uses a recursive backtracking algorithm</li>
-		</ul>
-		
-		<h4>tools</h4>
-		<ul>				
-			<li><a href="./experiments/showcaser/">showcaser</a> - left click = select, right click drag - move, and editing</li>
-			<li><a href="./experiments/metronome/">metronome</a> - tick tick</li>
-			<li><a href="./experiments/stringtools/">string tools</a> - mess with text, but not really</li>
-			<li><a href="./experiments/fenpoints/">fen point counter</a> - paste a chess fen string to see the material count</li>
-			<li><a href="./experiments/keyboards/">keyboards</a> - keyboard layout thing</li>
-		</ul>
+			<div class="banner-box">
+				<h1>more experiments</h1>
+			</div>
+		</section>
 
-		<h4>math</h4>
-		<ul>
-			<li><a href="./experiments/finalgrade/">final grade calculator</a> - help i need 126% on my biology final</li>
-			<li><a href="./experiments/quadratic/">quadratic formula</a> - pretty useful stuff</li>
-			<li><a href="./experiments/euclids/">gcd and lcm</a> - more slightly useful stuff</li>
-		</ul>
-		
-		<h4>misc</h4>
-		<ul>
-			<li><a href="./experiments/smartmachine/">smart machine</a> - only the smartest people can figure out how this works</li>
-			<li><a href="./experiments/bigtext/">big text</a> - make text big</li>
-			<li><a href="./experiments/emailnumbers/">email numbers</a> - this is some code thing i made for spamming stuff</li>
-		</ul>
+		<section>
+			<div class="row">
+				<p class="description">
+					this page has more demonstrative stuff and nothing
+					too interaction-oriented like games
+				</p>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h3>simulations</h3>
+					<a class="game-card" href="https://boids.cubedhuang.com/">
+						<div class="text">
+							<div class="title">boids</div>
+							<div class="description">2d flocking simulation</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/evolvingtext/">
+						<div class="text">
+							<div class="title">genetic text</div>
+							<div class="description">watch text evolve</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
 
-		<p>
-			source code is
-			<a href="https://github.com/cubeDhuang/extras">here</a>
-		</p>
+					<h3>math</h3>
+					<a class="game-card" href="./experiments/finalgrade/">
+						<div class="text">
+							<div class="title">final grade calculator</div>
+							<div class="description">help i need 126% on my biology final</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/quadratic/">
+						<div class="text">
+							<div class="title">quadratic formula</div>
+							<div class="description">pretty useful stuff</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/euclids/">
+						<div class="text">
+							<div class="title">gcd and lcm</div>
+							<div class="description">more slightly useful stuff</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					
+					<h3>misc</h3>
+					<a class="game-card" href="./experiments/smartmachine/">
+						<div class="text">
+							<div class="title">smart machine</div>
+							<div class="description">only the smartest people can figure out how this works</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/bigtext/">
+						<div class="text">
+							<div class="title">big text</div>
+							<div class="description">make text big</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+				</div>
+
+				<div class="col">
+					<h3>fun</h3>
+					<a class="game-card" href="./experiments/bogosort/">
+						<div class="text">
+							<div class="title">bogosort</div>
+							<div class="description">demonstration of the best sorting algorithm</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/tictactoe/">
+						<div class="text">
+							<div class="title">tic tac toe bot</div>
+							<div class="description">beat a bot, it's pretty hard</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/maze/">
+						<div class="text">
+							<div class="title">maze generator</div>
+							<div class="description">it uses a recursive backtracking algorithm</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+
+					<h3>tools</h3>
+					<a class="game-card" href="./experiments/showcaser/">
+						<div class="text">
+							<div class="title">showcaser</div>
+							<div class="description">left click = select, right click drag - move, and editing</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/metronome/">
+						<div class="text">
+							<div class="title">metronome</div>
+							<div class="description">tick tick</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/stringtools/">
+						<div class="text">
+							<div class="title">string tools</div>
+							<div class="description">mess with text, but not really</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/fenpoints/">
+						<div class="text">
+							<div class="title">fen point counter</div>
+							<div class="description">paste a chess fen string to see the material count</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+					<a class="game-card" href="./experiments/keyboards/">
+						<div class="text">
+							<div class="title">keyboards</div>
+							<div class="description">keyboard layout thing</div>
+						</div>
+						<div class="arrow">
+							<span></span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="row">
+				<p>
+					source code is
+					<a class="link" href="https://github.com/cubeDhuang/extras">here</a>
+				</p>
+			</div>
+		</footer>
+
+		<script src="./home.js"></script>
 	</body>
 </html>

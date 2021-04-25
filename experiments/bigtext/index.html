@@ -11,19 +11,27 @@
 	</head>
 
 	<body>
-		<div id="app">
-			<h1>this supports most ASCII</h1>
-			<p>to be more specific, printables 32-126</p> <br>
-			<textarea
-				name="original"
-				id="original"
-				v-model="original"
-				cols="30" rows="5"
-				style="font-size: 16px"
-				placeholder="type something here..."></textarea>
-
-			<pre>{{ output }}</pre>
-		</div>
+		<section class="top">
+			<h1>big text</h1>
+		</section>
+		
+		<section id="app">
+			<div class="row">
+				<div class="col">
+					<p>this is pretty broken</p>
+					<p>its supposed to work on printables 32-126 but i only got around to making some numbers</p>
+					<textarea
+						name="original"
+						id="original"
+						v-model="original"
+						cols="30" rows="5"
+						style="font-size: 16px"
+						placeholder="type something here..."></textarea>
+		
+					<pre>{{ output }}</pre>
+				</div>
+			</div>
+		</section>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 		<script src="script.js"></script>

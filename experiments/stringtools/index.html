@@ -10,24 +10,31 @@
 	</head>
 	
 	<body>
-		<h2>string tools</h2>
-		<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
-		<br>
-		<!-- this is bad practice, dont do it -->
-		<button onclick="reverse()">reverse</button>
-		<button onclick="shuffle()">shuffle letters</button>
-		<br>
-		<button onclick="capital()">capitalize words</button>
-		<button onclick="uppercase()">uppercase words</button>
-		<button onclick="lowercase()">lowercase words</button>
-		<br>
-		<button onclick="ranCaps()">random caps</button>
-		<button onclick="evenCaps()">every other caps</button>
-		<button onclick="wordEvenCaps()">every other caps for words</button>
-		<br>
-		<button onclick="spaces()">spaces between characters</button>
+		<section class="top">
+			<h1>string tools</h1>
+		</section>
 
-		<p>tell me if you want more ok bye</p>
+		<section>
+			<div class="row">
+				<div class="col">
+					<textarea name="str" id="str" cols="30" rows="10">sample text</textarea>
+					<br>
+					<!-- this is bad practice, dont do it -->
+					<button onclick="reverse()">reverse</button>
+					<button onclick="shuffle()">shuffle letters</button>
+					<br>
+					<button onclick="capital()">capitalize words</button>
+					<button onclick="uppercase()">uppercase words</button>
+					<button onclick="lowercase()">lowercase words</button>
+					<br>
+					<button onclick="ranCaps()">random caps</button>
+					<button onclick="evenCaps()">every other caps</button>
+					<button onclick="wordEvenCaps()">every other caps for words</button>
+					<br>
+					<button onclick="spaces()">spaces between characters</button>
+				</div>
+			</div>
+		</section>
 
 		<script>
 			const textarea = document.getElementById("str");

@@ -12,81 +12,50 @@
 	</head>
 
 	<body>
-		<h1 style="text-align: center;">Tic Tac Toe</h1>
+		<section class="top">
+			<h1>Tic Tac Toe</h1>
+		</section>
 
 		<div id="app">
-			<div class="chooser" v-if="!started">
-				<button class="chooser" @click="start(2)">
-					Play as X
-				</button>
-				<button class="chooser" @click="start(1)">
-					Play as O
-				</button>
-			</div>
-			<div v-if="started">
-				<h2 style="text-align: center;">
-					You are {{ symbol(player) }}. <br>
-					Computer is {{ symbol(computer) }}.
-				</h2>
-				<table id="board">
-					<tr>
-						<td>
-							<button @click="mark(0)" :class="board[0] ? 'full' : 'free'">
-								{{ symbol(board[0]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(1)" :class="board[1] ? 'full' : 'free'">
-								{{ symbol(board[1]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(2)" :class="board[2] ? 'full' : 'free'">
-								{{ symbol(board[2]) }}
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button @click="mark(3)" :class="board[3] ? 'full' : 'free'">
-								{{ symbol(board[3]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(4)" :class="board[4] ? 'full' : 'free'">
-								{{ symbol(board[4]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(5)" :class="board[5] ? 'full' : 'free'">
-								{{ symbol(board[5]) }}
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button @click="mark(6)" :class="board[6] ? 'full' : 'free'">
-								{{ symbol(board[6]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(7)" :class="board[7] ? 'full' : 'free'">
-								{{ symbol(board[7]) }}
-							</button>
-						</td>
-						<td>
-							<button @click="mark(8)" :class="board[8] ? 'full' : 'free'">
-								{{ symbol(board[8]) }}
-							</button>
-						</td>
-					</tr>
-				</table>
-				<div style="text-align: center;" v-if="!inGame">
-					<h2 v-if="winner > 0">{{ symbol(winner) }} Wins!</h2>
-					<h2 v-else>It's a tie!</h2>
-					<button class="restart" @click="restart">Restart</button>
+			<div class="row" v-if="!started">
+				<div class="col chooser">
+					<button @click="start(2)">
+						Play as X
+					</button>
+					<button @click="start(1)">
+						Play as O
+					</button>
 				</div>
 			</div>
+
+			<template v-if="started">
+				<div class="row">
+					<h4>
+						You are {{ symbol(player) }}. <br>
+						Computer is {{ symbol(computer) }}.
+					</h4>
+				</div>
+
+				<div class="row">
+					<div class="board">
+						<template v-for="(val, i) in board">
+							<button @click="mark(i)" class="space" :class="val ? val === player ? 'player' : 'computer' : 'free'">
+								{{ symbol(val) }}
+							</button>
+						</template>
+					</div>
+				</div>
+				
+				<div class="row" v-if="!inGame">
+					<div class="col">
+						<h2 v-if="winner > 0">{{ symbol(winner) }} Wins!</h2>
+						<h2 v-else>It's a tie!</h2>
+					</div>
+					<div class="col chooser">
+						<button class="restart" @click="restart">Restart</button>
+					</div>
+				</div>
+			</template>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>

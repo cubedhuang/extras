@@ -4,18 +4,30 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 		<title>Metronome</title>
+
+		<link rel="stylesheet" href="../../style.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<h2>Metronome</h2>
-		<h3>BPM: <span id="display">120</span></h3>
-		<input type="range" name="bpm" id="bpm" min="10" max="300" value="120" step="1">
-		<!-- messy code haha -->
-		<h3 class="fl">Beats per Measure: <span id="measure">2</span></h3>
-		<h3 class="fr">Current Beat: <span id="current">1</span></h3>
-		<input type="range" name="mrange" id="mrange" min="1" max="8" value="2" step="1">
-		<button onclick="toggle()">Toggle</button>
+		<section class="top">
+			<h1>Metronome</h1>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col">
+					<h3>BPM: <span id="display">120</span></h3>
+					<input type="range" name="bpm" id="bpm" min="10" max="300" value="120" step="1">
+			
+					<h3 class="fl">Beats per Measure: <span id="measure">2</span></h3>
+					<h3 class="fr">Current Beat: <span id="current">1</span></h3>
+					<input type="range" name="mrange" id="mrange" min="1" max="8" value="2" step="1">
+					<button onclick="toggle()">Toggle</button>
+				</div>
+			</div>
+		</section>
 
 		<script src="howler.js"></script>
 		<script src="script.js"></script>

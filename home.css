@@ -1,0 +1,39 @@
+.section-banner {
+	background: transparent;
+	display: flex;
+	place-items: center;
+	flex-direction: row;
+	min-height: 20em;
+}
+
+.banner-box {
+	width: min(100%, 1140px);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-items: center;
+}
+
+.banner-box h1 {
+	flex: 1 1 400px;
+}
+
+#banner-canvas {
+	background:
+		url("https://cubedhuang.com/images/alex-knight-unsplash.webp"),
+		#000;
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20em;
+}
+
+p.description {
+	width: 100%;
+	text-align: center;
+}

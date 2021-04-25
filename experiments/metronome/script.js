@@ -24,17 +24,17 @@ const hat = new Howl({
 
 slider.addEventListener("input", function() {
 	bpm = parseInt(this.value);
-	display.innerText = bpm;
+	display.textContent = bpm;
 	interval = (60 / bpm) * 1000;
 });
 mrange.addEventListener("input", function() {
 	clearTimeout(stopper);
 	measureLength = parseInt(this.value);
-	measure.innerText = measureLength;
+	measure.textContent = measureLength;
 	if (currentBeat > measureLength) {
 		currentBeat = 1;
 	}
-	current.innerText = 1;
+	current.textContent = 1;
 	if (playing) start();
 });
 
@@ -47,13 +47,13 @@ function toggle() {
 function beat() {
 	if (currentBeat === 1 && measureLength > 1) {
 		kick.play();
-		current.innerText = currentBeat;
+		current.textContent = currentBeat;
 		currentBeat++;
 		return;
 	}
 	if (currentBeat !== 1 && measureLength > 1) {
 		hat.play();
-		current.innerText = currentBeat;
+		current.textContent = currentBeat;
 		currentBeat++;
 		if (currentBeat > measureLength) {
 			currentBeat = 1;

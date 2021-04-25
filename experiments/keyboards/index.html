@@ -10,58 +10,64 @@
 	</head>
 	
 	<body>
-		<h2>keyboard place converter</h2>
+		<section class="top">
+			<h1>keyboard place converter</h1>
+		</section>
 		
-		<p>
-			this used to be only for colemak and qwerty,
-			so the explanation only fits those two.
-			you can extend it to dvorak tho so it's fine
-		</p>
-
-		<h3>explanation</h3>
-		<p style="font-size:smaller">
-			the keyboard layout colemak shifts the keys around into a different
-			location than they would be on a traditional qwerty keyboard.
-			however, if you're typing with the colemak layout on but you press
-			the keys in the location they would be in a qwerty layout, you end
-			up with a bunch of gibberish. this tool just lets you decipher (and
-			create) whatever colemak-qwerty gibberish you want.
-		</p>
-		<p style="font-size:smaller">
-			you can even convert it several times and use it as a simple cipher.
-			eventually, it will go in a cycle.
-			here are the cycle amounts: <br>
-			qwerty <> colemak: 42 <br>
-			qwerty <> dvorak: 210 <br>
-			colemak <> dvorak: 24
-		</p>
-		<p style="font-size:smaller">
-			also this only supports main keyboard stuff so if you have other
-			symbols on your numpad that don't change, this might change it
-		</p>
-		
-		<p>
-			<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
-		</p>
-
-		<p>
-			from
-			<select name="from" id="from">
-				<option value="qwerty">qwerty</option>
-				<option value="colemak">colemak</option>
-				<option value="dvorak">dvorak</option>
-			</select>
-			to
-			<select name="to" id="to">
-				<option value="qwerty">qwerty</option>
-				<option value="colemak" selected="selected">colemak</option>
-				<option value="dvorak">dvorak</option>
-			</select>
-			<button style="font-size:large;padding:0 5px" onclick="reverse()">⇆</button>
-		</p>
-		<p>
-			<button style="font-size:large;padding:5px" onclick="swap()">swap</button>
-		</p>
+		<section>
+			<div class="row">
+				<div class="col">
+					<p>
+						this used to be only for colemak and qwerty,
+						so the explanation only fits those two.
+						you can extend it to dvorak tho so it's fine
+					</p>
+			
+					<h3>explanation</h3>
+					<p>
+						the keyboard layout colemak shifts the keys around into a different
+						location than they would be on a traditional qwerty keyboard.
+						however, if you're typing with the colemak layout on but you press
+						the keys in the location they would be in a qwerty layout, you end
+						up with a bunch of gibberish. this tool just lets you decipher (and
+						create) whatever colemak-qwerty gibberish you want.
+					</p>
+					<p>
+						you can even convert it several times and use it as a simple cipher.
+						eventually, it will go in a cycle.
+						here are the cycle amounts: <br>
+						qwerty <> colemak: 42 <br>
+						qwerty <> dvorak: 210 <br>
+						colemak <> dvorak: 24
+					</p>
+					<p>
+						also this only supports main keyboard stuff so if you have other
+						symbols on your numpad that don't change, this might change it
+					</p>
+					
+					<textarea name="str" id="str" cols="30" rows="10" style="font-size: 16px">sample text</textarea>
+			
+					<p>
+						from
+						<select name="from" id="from">
+							<option value="qwerty">qwerty</option>
+							<option value="colemak">colemak</option>
+							<option value="dvorak">dvorak</option>
+						</select>
+						to
+						<select name="to" id="to">
+							<option value="qwerty">qwerty</option>
+							<option value="colemak" selected="selected">colemak</option>
+							<option value="dvorak">dvorak</option>
+						</select>
+						<button onclick="reverse()">⇆</button>
+					</p>
+					<p>
+						<button onclick="swap()">swap</button>
+					</p>
+				</div>
+			</div>
+		</section>
 
 		<script>
 			const keyboards = {
