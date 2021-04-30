@@ -2,11 +2,14 @@ const rand = new Math.seedrandom("seed");
 const { floor } = Math;
 
 const randint = (a, b) => floor(b ? rand() * (b - a + 1) + a : rand() * (a + 1));
-const char = pool => pool[floor(rand() * pool.length)];
+const char = pool => {
+	const skewedRandom = rand() ** 2;
+	return pool[floor(skewedRandom * pool.length)];
+};
 
 function syllable() {
-	const consonants = "bcdfghjklmnprstvwz";
-	const vowels = "aeiou";
+	const consonants = "tsnhrdlcmfwgpbvkjz";
+	const vowels = "eaiou";
 	const all = consonants + vowels;
 
 	const length = randint(2, 3);
@@ -52,6 +55,9 @@ function sentence() {
 			w = `<${t}>${w}</${t}>`;
 		}
 		text += " " + w;
+		if (rand() < 0.1 && i !== length - 1) {
+			text += ",";
+		}
 	}
 
 	return text + ".";
