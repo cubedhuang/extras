@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		
+		<meta name="author" content="cubedhuang">
+		<meta name="description" content="Random game ideas...">
+		<meta name="keywords" content="games, game ideas, game generator">
+		<meta name="theme-color" content="#d63031">
+		
+		<meta property="og:title" content="Game Idea Generator">
+		<meta property="description" content="Random game ideas...">
+		<meta property="og:description" content="Random game ideas...">
+		<meta property="og:url" content="https://cubedhuang.com/experiments/game-gen/">
+		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
+
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<link rel="stylesheet" href="/css/generic.css">
+		<link rel="canonical" href="https://cubedhuang.com/experiments/game-gen/">
+		<link rel="author" href="https://cubedhuang.com/">
+		<link rel="publisher" href="https://cubedhuang.com/">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107754281-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-107754281-2');
+		</script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+
+		<title>Game Idea Generator</title>
+	</head>
+	
+    <body>
+		<section class="top">
+			<h2>Game Idea Generator</h2>
+		</section>
+		<br>
+		<div class="row">
+			<div class="col">
+				<a href="/" class="button">Back</a>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col">
+				<p>
+					Randomness Seed: <input type="number" id="seed">
+				</p>
+				<a id="random" class="button">Random Randomness Seed</a>
+			</div>
+
+			<div class="col">
+				Output: <span id="output"></span>
+			</div>
+		</div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
