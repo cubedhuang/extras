@@ -99,9 +99,10 @@
 #banner-canvas {
 	background:
 		url("https://cubedhuang.com/images/alex-knight-unsplash.webp"),
-		#000;
+		linear-gradient(225deg, #0984e380, #00000080);
 	background-size: cover;
 	background-position: center;
+	background-blend-mode: overlay;
 	position: fixed;
 	z-index: -1;
 	top: 0;
