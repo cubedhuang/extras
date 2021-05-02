@@ -23,7 +23,7 @@
 	width: fit-content;
 	text-align: right;
 	color: white;
-	background-color: var(--base);
+	background-color: var(--clr-1);
 	border-top-left-radius: 5px;
 }
 

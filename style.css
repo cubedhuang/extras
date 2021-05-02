@@ -2,19 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Open+Sans:wght@300;400;600&display=swap');
 
 :root {
-	--base: #d63031;
-	--lightbg: linear-gradient(to top left, #fff2, #fff2);
-	--darkbg: linear-gradient(to top left, #0002, #0002);
+	--clr-1: #d63031;
+	--bg-light: #fff2;
+	--bg-dark: #0002;
 	--bg: #15171a;
-	--title-font: "Lexend Deca", Helvetica, sans-serif;
-	--text-font: "Open Sans", Helvetica, sans-serif;
+	--ff-h: "Lexend Deca", Helvetica, sans-serif;
+	--ff-p: "Open Sans", Helvetica, sans-serif;
 	font-size: calc(16px + 2 * ((100vw - 320px) / 680));
 }
 
 /* stuff --------------------------- */
 
 * {
-	font-family: var(--text-font);
+	font-family: var(--ff-p);
 }
 
 html {
@@ -23,7 +23,7 @@ html {
 body {
 	background: var(--bg);
 	color: #fff;
-	font-family: var(--text-font);
+	font-family: var(--ff-p);
 	text-rendering: optimizeLegibility;
 
 	overflow-x: hidden;
@@ -72,7 +72,7 @@ section {
 
 section.top {
 	padding: 2em 0;
-	background: var(--base);
+	background: var(--clr-1);
 	color: #fff;
 	margin-bottom: 1em;
 }
@@ -93,7 +93,7 @@ h1,
 h2,
 h3,
 h4 {
-	font-family: var(--title-font);
+	font-family: var(--ff-h);
 	text-transform: lowercase;
 	letter-spacing: 1px;
 	filter: drop-shadow(0 0 0.2em #fff8);
@@ -121,7 +121,7 @@ h3 {
 :is(h2, h3)::after {
 	display: block;
 	height: 2px;
-	background: var(--base);
+	background: var(--clr-1);
 	content: "";
 	margin: 0.5em auto;
 }
@@ -144,7 +144,7 @@ h4 {
 	color: white;
 	padding: 1em;
 	text-align: left;
-	background: var(--darkbg);
+	background: var(--bg-dark);
 	display: flex;
 	align-items: center;
 	margin-top: 0.5em;
@@ -169,7 +169,7 @@ h4 {
 }
 
 .game-card .title {
-	font-family: var(--title-font);
+	font-family: var(--ff-h);
 	display: block;
 	text-transform: lowercase;
 	filter: drop-shadow(0 0 0.2em #fff8);
@@ -188,7 +188,7 @@ h4 {
 
 :hover > .arrow {
 	transform: translateX(0.2em);
-	filter: drop-shadow(-0.4em 0 0 var(--base)) drop-shadow(0 0 0.5em #fffb);
+	filter: drop-shadow(-0.4em 0 0 var(--clr-1)) drop-shadow(0 0 0.5em #fffb);
 }
 
 .arrow span {
@@ -228,9 +228,9 @@ p {
 }
 
 a.link {
-	color: var(--base);
+	color: var(--clr-1);
 	text-decoration: none;
-	border-bottom: 1px solid var(--base);
+	border-bottom: 1px solid var(--clr-1);
 	transition: border 0.2s, color 0.2s, filter 0.2s;
 	cursor: pointer;
 }
@@ -254,16 +254,16 @@ input[type="text"],
 textarea,
 .button,
 button {
-	font-family: var(--title-font);
+	font-family: var(--ff-h);
 	display: inline-block;
 	padding: 0.5em 0.75em;
 	border-radius: 0.5em;
-	border: 2px solid var(--base);
+	border: 2px solid var(--clr-1);
 	text-decoration: none;
 	user-select: none;
 
 	background-color: var(--bg);
-	color: var(--base);
+	color: var(--clr-1);
 }
 
 /* BUTTONS */
@@ -271,7 +271,7 @@ button {
 .button,
 button {
 	margin-bottom: 0.25em;
-	box-shadow: 0 0.25em 0 var(--base);
+	box-shadow: 0 0.25em 0 var(--clr-1);
 	cursor: pointer;
 	transition: background 0.2s, color 0.2s, filter 0.2s,
 		transform 0.1s, box-shadow 0.1s;
@@ -279,7 +279,7 @@ button {
 
 .button:hover,
 button:hover {
-	background: var(--base);
+	background: var(--clr-1);
 	color: #fff;
 	filter: drop-shadow(0 0 0.2em #fff4);
 }
@@ -287,7 +287,7 @@ button:hover {
 .button:active,
 button:active {
 	transform: translateY(0.2em);
-	box-shadow: 0 0.05em 0 var(--base);
+	box-shadow: 0 0.05em 0 var(--clr-1);
 }
 
 /* INPUTS */
@@ -305,7 +305,7 @@ textarea {
 ):focus {
 	outline: none;
 	box-shadow: 0 0 0.5em #fffb;
-	background: var(--base);
+	background: var(--clr-1);
 	color: #eee;
 }
 

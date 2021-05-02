@@ -1,8 +1,7 @@
 (() => {
 	const canvas = document.getElementById("banner-canvas");
-	const banner = document.querySelector(".section-banner");
 	canvas.width = document.body.clientWidth;
-	canvas.height = banner.clientHeight;
+	canvas.height = window.innerHeight;
 	const ctx = canvas.getContext("2d");
 	const particles = [];
 
@@ -19,7 +18,7 @@
 
 	window.onresize = e => {
 		canvas.width = document.body.clientWidth;
-		canvas.height = banner.clientHeight;
+		canvas.height = window.innerHeight;
 	};
 
 	window.onmousemove = e => {
@@ -41,8 +40,7 @@
 		mouse.ex = e.x || e.touches[0].x;
 		mouse.ey = e.y || e.touches[0].x;
 	}
-	document.querySelectorAll("header, .section-banner").forEach(
-		e => e.addEventListener("mousedown", e => e.button === 0 ? e.preventDefault() : 0));
+
 	window.onmouseup = window.ontouchend = e => {
 		mouse.down = false;
 		mouse.downTime = Date.now();

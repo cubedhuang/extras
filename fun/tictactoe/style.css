@@ -20,7 +20,7 @@
 	border-radius: 0;
 	box-shadow: none;
 	margin: 0;
-	font-family: var(--text-font);
+	font-family: var(--ff-p);
 }
 
 .space:hover {
@@ -38,13 +38,13 @@
 	.computer
 ):hover {
 	background-color: var(--bg);
-	color: var(--base);
+	color: var(--clr-1);
 }
 
 .player {
-	--base: #3498db;
+	--clr-1: #3498db;
 }
 
 .computer {
-	--base: #f1c40f;
+	--clr-1: #f1c40f;
 }
