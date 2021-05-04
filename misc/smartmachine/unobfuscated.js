@@ -1,4 +1,4 @@
-;(function(){
+(function () {
 	document.body.innerHTML += `
 	<div class="container">
 		<div id="form">
@@ -26,28 +26,32 @@
 
 		let fail = false;
 		if (password.value === "") fail = "NO PASSWORD ENTERED, ACCESS DENIED";
-		else if (password.value.charAt(0) !== String.fromCharCode(126)) fail = "INCORRECT PASSWORD ENTERED, ACCESS DENIED";
+		else if (password.value.charAt(0) !== String.fromCharCode(126))
+			fail = "INCORRECT PASSWORD ENTERED, ACCESS DENIED";
 		else if (question.value === "") fail = "NO QUESTION ENTERED, ACCESS DENIED";
 
 		let failTime = Math.random() * 500 + 500;
 		let mainTime = Math.random() * 1000 + 2000;
 
-		setTimeout(() => {
-			HTML.classList.remove("loading");
-			form.classList.add("hidden");
-			answer.id = "answer"
-			answer.classList.remove("hidden");
+		setTimeout(
+			() => {
+				HTML.classList.remove("loading");
+				form.classList.add("hidden");
+				answer.id = "answer";
+				answer.classList.remove("hidden");
 
-			let string;
-			if (fail) string = fail;
-			else {
-				string = password.value.split("")
-				string.shift();
-				string = string.join("");
-			}
+				let string;
+				if (fail) string = fail;
+				else {
+					string = password.value.split("");
+					string.shift();
+					string = string.join("");
+				}
 
-			answer.textContent = string;
-		}, fail ? failTime : mainTime);
+				answer.textContent = string;
+			},
+			fail ? failTime : mainTime
+		);
 
 		if (!fail) {
 			setTimeout(() => {

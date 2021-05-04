@@ -5,12 +5,22 @@ const debug = new Vue({
 		inB: "",
 		inC: "",
 		out1: "",
-		out2: "",
+		out2: ""
 	},
 	methods: {
 		calc() {
-			this.out1 = math.evaluate([`a = ${this.inA}`, `b = ${this.inB}`, `c = ${this.inC}`, `-b + sqrt(b^2 - 4a*c) / (2a)`])[3];
-			this.out2 = math.evaluate([`a = ${this.inA}`, `b = ${this.inB}`, `c = ${this.inC}`, `-b - sqrt(b^2 - 4a*c) / (2a)`])[3];
+			this.out1 = math.evaluate([
+				`a = ${this.inA}`,
+				`b = ${this.inB}`,
+				`c = ${this.inC}`,
+				`-b + sqrt(b^2 - 4a*c) / (2a)`
+			])[3];
+			this.out2 = math.evaluate([
+				`a = ${this.inA}`,
+				`b = ${this.inB}`,
+				`c = ${this.inC}`,
+				`-b - sqrt(b^2 - 4a*c) / (2a)`
+			])[3];
 		}
 		// calc(lcm) {
 		// 	let output = this.checkNumbers();
@@ -40,7 +50,7 @@ const debug = new Vue({
 		// },
 		// checkNumbers() {
 		// 	if (!this.in1 || !this.in2) return "Make sure you use both inputs!";
-			
+
 		// 	let highest = this.in1.length > this.in2.length ? this.in1.length : this.in2.length
 		// 	Decimal.set({ precision: highest + 1 });
 

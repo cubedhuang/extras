@@ -12,6 +12,7 @@
 			input {
 				margin-top: 0.4em;
 			}
+
 		</style>
 	</head>
 
@@ -19,22 +20,22 @@
 		<section class="top">
 			<h1>fen point counter</h1>
 		</section>
-		
+
 		<section>
 			<div class="row">
 				<div class="col">
 					<p>
 						get a fen string from chess and paste it here for the material count
 					</p>
-			
+
 					<p>
 						fen string:
 						<br>
 						<input type="text" name="fen" id="fen" style="width: 100%">
 					</p>
-			
+
 					<button onclick="count()">count</button>
-			
+
 					<p id="output"></p>
 				</div>
 			</div>
@@ -64,7 +65,7 @@
 				}
 
 				outputEl.textContent = value === 0 ? "the material count is even!" :
-					`${ value > 0 ? "white" : "black" } is up ${ Math.abs(value) } points of material!`;
+					`${value > 0 ? "white" : "black"} is up ${Math.abs(value)} points of material!`;
 			}
 		</script>
 	</body>

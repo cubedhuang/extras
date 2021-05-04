@@ -1,9 +1,7 @@
 const debug = new Vue({
 	el: "#app",
 	data: {
-		board: [0, 0, 0,
-			0, 0, 0,
-			0, 0, 0],
+		board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
 		current: 1,
 		player: 0,
 		computer: 0,
@@ -21,10 +19,13 @@ const debug = new Vue({
 			}
 		},
 		symbol(a) {
-			switch(a) {
-				case 0: return ""
-				case 1: return "X"
-				case 2: return "O"
+			switch (a) {
+				case 0:
+					return "";
+				case 1:
+					return "X";
+				case 2:
+					return "O";
 			}
 		},
 		mark(space) {
@@ -40,7 +41,7 @@ const debug = new Vue({
 					this.winner = -1;
 					return;
 				}
-				let next = (this.current + 1);
+				let next = this.current + 1;
 				this.current = next === 2 ? 2 : 1;
 
 				if (this.current === this.computer) this.botMove();
@@ -50,9 +51,10 @@ const debug = new Vue({
 			if (!grid) grid = this.board;
 			if (!player) player = this.current;
 			const row = (p1, p2, p3) =>
-				(grid[p1] === player && grid[p2] === player && grid[p3] === player);
-	
-			return (// Rows
+				grid[p1] === player && grid[p2] === player && grid[p3] === player;
+
+			return (
+				// Rows
 				row(0, 1, 2) ||
 				row(3, 4, 5) ||
 				row(6, 7, 8) ||
@@ -62,12 +64,11 @@ const debug = new Vue({
 				row(2, 5, 8) ||
 				// Diagonals
 				row(0, 4, 8) ||
-				row(2, 4, 6))
+				row(2, 4, 6)
+			);
 		},
 		restart() {
-			this.board = [0, 0, 0,
-				0, 0, 0,
-				0, 0, 0];
+			this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 			this.inGame = true;
 			this.started = false;
 			this.current = 1;
@@ -79,15 +80,15 @@ const debug = new Vue({
 					grid.push(this.board[i]);
 				}
 				return grid;
-			}
-			let ranMove = (arr) => {
+			};
+			let ranMove = arr => {
 				let possible = [];
 				for (let i = 0; i < arr.length; i++) {
 					if (!this.board[arr[i]]) possible.push(arr[i]);
 				}
 				if (possible.length === 0) return null;
 				else return possible[Math.floor(Math.random() * possible.length)];
-			}
+			};
 
 			// Can we win next move?
 			for (let i = 0; i < 9; i++) {
@@ -100,7 +101,7 @@ const debug = new Vue({
 					}
 				}
 			}
-		
+
 			// Can the opponent win next move?
 			for (let i = 0; i < 9; i++) {
 				let copy = clone();
@@ -116,7 +117,7 @@ const debug = new Vue({
 			// Can we take a corner?
 			let place = ranMove([0, 2, 6, 8]);
 			if (!(place === null)) {
-				this.mark(place)
+				this.mark(place);
 				return;
 			}
 
@@ -129,7 +130,7 @@ const debug = new Vue({
 			// Take an edge.
 			place = ranMove([1, 3, 5, 7]);
 			if (place) {
-				this.mark(place)
+				this.mark(place);
 			}
 		}
 	}

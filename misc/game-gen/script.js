@@ -12,7 +12,7 @@ var types = [
 	"A battle royale",
 	"A fighting",
 	"A rhythm",
-	"An RPG",
+	"An RPG"
 ];
 var verbs = [
 	"click",
@@ -26,7 +26,7 @@ var verbs = [
 	"observe",
 	"exist as",
 	"fight",
-	"drag",
+	"drag"
 ];
 var nouns = [
 	"hearts",
@@ -38,7 +38,7 @@ var nouns = [
 	"computers",
 	"life",
 	"nothing",
-	"everything",
+	"everything"
 ];
 var earns = [
 	"money",
@@ -48,7 +48,7 @@ var earns = [
 	"memories",
 	"fun",
 	"nothing",
-	"random unnessesary stuff",
+	"random unnessesary stuff"
 ];
 
 var seed = document.getElementById("seed");
@@ -65,7 +65,7 @@ class Random {
 	}
 
 	next() {
-		return this._seed = this._seed * 16807 % 2147483647;
+		return (this._seed = (this._seed * 16807) % 2147483647);
 	}
 
 	nextFloat() {
@@ -82,10 +82,14 @@ function create() {
 	rand.next();
 
 	out.innerHTML =
-		pick(types, rand) + " game in which you " +
-		pick(verbs, rand) + " " +
-		pick(nouns, rand) + " to get " +
-		pick(earns, rand) + ".";
+		pick(types, rand) +
+		" game in which you " +
+		pick(verbs, rand) +
+		" " +
+		pick(nouns, rand) +
+		" to get " +
+		pick(earns, rand) +
+		".";
 }
 
 function reset() {

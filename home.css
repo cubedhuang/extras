@@ -49,7 +49,8 @@
 	}
 
 	21.5% {
-		filter: drop-shadow(5px -5px 0 #f004) drop-shadow(0 0 3px #fff4) brightness(80%);
+		filter: drop-shadow(5px -5px 0 #f004) drop-shadow(0 0 3px #fff4)
+			brightness(80%);
 		transform: translate(-2px, 2px);
 	}
 
@@ -97,8 +98,7 @@
 }
 
 #banner-canvas {
-	background:
-		url("https://cubedhuang.com/images/alex-knight-unsplash.webp"),
+	background: url("https://cubedhuang.com/images/alex-knight-unsplash.webp"),
 		linear-gradient(225deg, #0984e380, #00000080);
 	background-size: cover;
 	background-position: center;

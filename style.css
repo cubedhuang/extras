@@ -1,5 +1,5 @@
 @import url("https://cubedhuang.com/css/modern-normalize.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Open+Sans:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Open+Sans:wght@300;400;600&display=swap");
 
 :root {
 	--clr-1: #d63031;
@@ -273,8 +273,8 @@ button {
 	margin-bottom: 0.25em;
 	box-shadow: 0 0.25em 0 var(--clr-1);
 	cursor: pointer;
-	transition: background 0.2s, color 0.2s, filter 0.2s,
-		transform 0.1s, box-shadow 0.1s;
+	transition: background 0.2s, color 0.2s, filter 0.2s, transform 0.1s,
+		box-shadow 0.1s;
 }
 
 .button:hover,
@@ -298,22 +298,14 @@ textarea {
 	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-:is(
-	input[type="number"],
-	input[type="text"],
-	textarea
-):focus {
+:is(input[type="number"], input[type="text"], textarea):focus {
 	outline: none;
 	box-shadow: 0 0 0.5em #fffb;
 	background: var(--clr-1);
 	color: #eee;
 }
 
-:is(
-	input[type="number"],
-	input[type="text"],
-	textarea
-):focus::placeholder {
+:is(input[type="number"], input[type="text"], textarea):focus::placeholder {
 	color: #bbb;
 }
 
@@ -347,7 +339,9 @@ footer p {
 /* query --------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after {
+	*,
+	*::before,
+	*::after {
 		animation-delay: -1ms !important;
 		animation-duration: 1ms !important;
 		animation-iteration-count: 1 !important;

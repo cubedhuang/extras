@@ -14,20 +14,20 @@ let playing = true;
 let stopper;
 
 const kick = new Howl({
-	src: ['./audio/kick.wav'],
+	src: ["./audio/kick.wav"],
 	volume: 2
 });
 const hat = new Howl({
-	src: ['./audio/hat.wav'],
+	src: ["./audio/hat.wav"],
 	volume: 3
 });
 
-slider.addEventListener("input", function() {
+slider.addEventListener("input", function () {
 	bpm = parseInt(this.value);
 	display.textContent = bpm;
 	interval = (60 / bpm) * 1000;
 });
-mrange.addEventListener("input", function() {
+mrange.addEventListener("input", function () {
 	clearTimeout(stopper);
 	measureLength = parseInt(this.value);
 	measure.textContent = measureLength;
