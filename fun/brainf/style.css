@@ -114,3 +114,8 @@ code {
 	margin-right: 0.5em;
 	margin-left: auto;
 }
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
