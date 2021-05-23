@@ -58,6 +58,7 @@ const debug = Vue.createApp({
 				adder += this.speed;
 				while (adder > 0) {
 					this.step();
+					if (!this.running) return;
 					adder--;
 				}
 
