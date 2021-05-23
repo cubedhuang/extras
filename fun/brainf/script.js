@@ -8,6 +8,7 @@ const debug = Vue.createApp({
 		instance: 0,
 		memDisplay: "0",
 		sliderSpeed: 0,
+		paused: false,
 
 		instruction: "?",
 		memory: [0],
@@ -35,6 +36,7 @@ const debug = Vue.createApp({
 			this.running = true;
 			this.fast = fast;
 			this.steps = 0;
+			this.paused = false;
 
 			this.instruction = "?";
 			this.memory = [0];
@@ -48,12 +50,23 @@ const debug = Vue.createApp({
 
 			const fastStep = () => {
 				if (!this.running || current !== this.instance) return;
+
 				requestAnimationFrame(fastStep);
+
+				if (this.paused) return;
+
 				adder += this.speed;
 				while (adder > 0) {
 					this.step();
 					adder--;
 				}
+
+				this.memDisplay = Object.entries(this.memory)
+					.sort((a, b) => a[0] - b[0])
+					.map((v, i) =>
+						i === this.ptr ? `<span class="ptr">${v[1]}</span>` : `${v[1]}`
+					)
+					.join(" ");
 			};
 			requestAnimationFrame(fastStep);
 		},
@@ -145,12 +158,13 @@ const debug = Vue.createApp({
 			}
 			this.pos++;
 
-			this.memDisplay = Object.entries(this.memory)
-				.sort((a, b) => a[0] - b[0])
-				.map((v, i) =>
-					i === this.ptr ? `<span class="ptr">${v[1]}</span>` : `${v[1]}`
-				)
-				.join(" ");
+			if (!this.fast)
+				this.memDisplay = Object.entries(this.memory)
+					.sort((a, b) => a[0] - b[0])
+					.map((v, i) =>
+						i === this.ptr ? `<span class="ptr">${v[1]}</span>` : `${v[1]}`
+					)
+					.join(" ");
 		}
 	}
 }).mount("#app");
