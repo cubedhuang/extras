@@ -87,6 +87,10 @@ code {
 	font-weight: bold;
 }
 
+.memlength {
+	margin-right: 0.3em;
+}
+
 .ptr {
 	font: inherit;
 	position: relative;
