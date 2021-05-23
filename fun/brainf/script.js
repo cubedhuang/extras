@@ -6,12 +6,21 @@ const debug = Vue.createApp({
 		fast: false,
 		steps: 0,
 		instance: 0,
+		memDisplay: "0",
+		sliderSpeed: 0,
 
 		instruction: "?",
 		memory: [0],
-		pointer: 0,
-		position: 0
+		ptr: 0,
+		pos: 0
 	}),
+
+	computed: {
+		speed() {
+			return Math.round(2 ** this.sliderSpeed * 10) / 10;
+		}
+	},
+
 	methods: {
 		run(fast) {
 			// validate brackets
@@ -29,16 +38,22 @@ const debug = Vue.createApp({
 
 			this.instruction = "?";
 			this.memory = [0];
-			this.position = 0;
-			this.pointer = 0;
+			this.pos = 0;
+			this.ptr = 0;
 			const current = ++this.instance;
 
 			if (!fast) return this.step();
 
+			let adder = 0;
+
 			const fastStep = () => {
 				if (!this.running || current !== this.instance) return;
 				requestAnimationFrame(fastStep);
-				this.step();
+				adder += this.speed;
+				while (adder > 0) {
+					this.step();
+					adder--;
+				}
 			};
 			requestAnimationFrame(fastStep);
 		},
@@ -48,9 +63,9 @@ const debug = Vue.createApp({
 
 			const textarea = document.getElementById("input");
 			textarea.focus();
-			textarea.setSelectionRange(this.position, this.position + 1);
+			textarea.setSelectionRange(this.pos, this.pos + 1);
 
-			const instruction = this.input[this.position];
+			const instruction = this.input[this.pos];
 
 			if (instruction === undefined) {
 				this.running = false;
@@ -60,39 +75,42 @@ const debug = Vue.createApp({
 
 			const INSTRUCTIONS = {
 				">": () => {
-					this.pointer++;
-					if (this.memory[this.pointer] === undefined)
-						this.memory[this.pointer] = 0;
+					this.ptr++;
+					if (this.memory[this.ptr] === undefined) this.memory[this.ptr] = 0;
 				},
 				"<": () => {
-					this.pointer--;
-					if (this.memory[this.pointer] === undefined)
-						this.memory[this.pointer] = 0;
+					this.ptr--;
+					if (this.memory[this.ptr] === undefined) this.memory[this.ptr] = 0;
 				},
 				"+": () => {
-					this.memory[this.pointer]++;
+					this.memory[this.ptr]++;
 				},
 				"-": () => {
-					this.memory[this.pointer]--;
+					this.memory[this.ptr]--;
 				},
 				".": () => {
-					this.output += String.fromCodePoint(this.memory[this.pointer]);
+					this.output += String.fromCodePoint(this.memory[this.ptr]);
 				},
 				",": () => {
-					this.memory[this.pointer] = prompt("Enter the input:").charCodeAt(0);
+					const answer = prompt(
+						"Enter the input: (type quit if you need to abort)"
+					);
+					if (answer === "quit") this.running = false;
+					this.memory[this.ptr] =
+						prompt("Enter the input:")?.charCodeAt?.(0) || 0;
 				},
 				"[": () => {
-					if (this.memory[this.pointer] !== 0) return;
+					if (this.memory[this.ptr] !== 0) return;
 
 					let depth = 1;
-					for (let i = this.position + 1; i < this.input.length; i++) {
+					for (let i = this.pos + 1; i < this.input.length; i++) {
 						switch (this.input[i]) {
 							case "[":
 								depth++;
 								break;
 							case "]":
 								if (--depth === 0) {
-									this.position = i;
+									this.pos = i;
 									return;
 								}
 								break;
@@ -100,17 +118,17 @@ const debug = Vue.createApp({
 					}
 				},
 				"]": () => {
-					if (this.memory[this.pointer] === 0) return;
+					if (this.memory[this.ptr] === 0) return;
 
 					let depth = 1;
-					for (let i = this.position - 1; i >= 0; i--) {
+					for (let i = this.pos - 1; i >= 0; i--) {
 						switch (this.input[i]) {
 							case "]":
 								depth++;
 								break;
 							case "[":
 								if (--depth === 0) {
-									this.position = i;
+									this.pos = i;
 									return;
 								}
 								break;
@@ -125,7 +143,14 @@ const debug = Vue.createApp({
 				this.instruction = instruction;
 				this.steps++;
 			}
-			this.position++;
+			this.pos++;
+
+			this.memDisplay = Object.entries(this.memory)
+				.sort((a, b) => a[0] - b[0])
+				.map((v, i) =>
+					i === this.ptr ? `<span class="ptr">${v[1]}</span>` : `${v[1]}`
+				)
+				.join(" ");
 		}
 	}
 }).mount("#app");

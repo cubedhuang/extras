@@ -6,14 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<meta name="author" content="cubedhuang">
-		<meta name="description" content="more experiments">
+		<meta name="author" content="brainf***">
+		<meta name="description" content="popular esoteric programming language">
 		<meta name="keywords" content="brainf***, esoteric, programming, language">
 		<meta name="theme-color" content="#d63031">
 
-		<meta property="og:title" content="cubedhuang">
-		<meta property="description" content="web experiments">
-		<meta property="og:description" content="web experiments">
+		<meta property="og:title" content="brainf***">
+		<meta property="description" content="popular esoteric programming language">
+		<meta property="og:description" content="popular esoteric programming language">
 		<meta property="og:url" content="https://cubedhuang.com/">
 		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
 
@@ -40,8 +40,6 @@
 		<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
 			data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
 		<!-- End Cloudflare Web Analytics -->
-
-		<script defer src="./home.js"></script>
 	</head>
 
 	<body>
@@ -52,11 +50,56 @@
 		<section id="app">
 			<div class="row">
 				<div class="col">
+					<h3>instructions</h3>
+					<p>
+						brainf*** is an esoteric programming language with an extremely minimal
+						instruction set. the program's memory exists on an infinitely long tape of
+						memory cells
+					</p>
+					<p>
+						<code>></code> increment the data pointer (to point to the next cell to the
+						right).
+						<br>
+						<code><</code> decrement the data pointer (to point to the next cell to the
+						left).
+						<br>
+						<code>+</code> increment (increase by one) the byte at the data pointer.
+						<br>
+						<code>-</code> decrement (decrease by one) the byte at the data pointer.
+						<br>
+						<code>.</code> output the byte at the data pointer.
+						<br>
+						<code>,</code> accept one byte of input, storing its value in the byte at
+						the data pointer.
+						<br>
+						<code>[</code> if the byte at the data pointer is zero, then instead of
+						moving the instruction pointer forward to the next command, jump it forward
+						to the command after the matching ] command.
+						<br>
+						<code>]</code> if the byte at the data pointer is nonzero, then instead of
+						moving the instruction pointer forward to the next command, jump it back to
+						the command after the matching [ command.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
 					<h3>input</h3>
 					<textarea name="input" id="input" v-model="input"
-						:class="running ? 'red-select' : ''" :readonly="running"></textarea>
-					<button class="calculate" @click="run(true)">run program quickly</button>
-					<button class="calculate" @click="run(false)">run program step-by-step</button>
+						:class="running ? 'red-select' : ''" :readonly="running"
+						placeholder="><+-[].,"></textarea>
+					<div class="buttons">
+						<button class="calculate" @click="run(true)">
+							run program quickly
+						</button>
+						<div class="slider">
+							speed: <code>{{ speed }}</code>
+							<input type="range" min="-3" max="10" step="0.25" v-model="sliderSpeed">
+						</div>
+						<button class="calculate" @click="run(false)">
+							run program step-by-step
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -64,18 +107,19 @@
 					<h3>Output</h3>
 					<div class="info">
 						<p>
-							instructions done: <code>{{ steps }}</code>
+							instructions executed: <code>{{ steps }}</code>
 							<br>
 							latest instruction: <code>{{ instruction }}</code>
 							<br>
-							instruction position: <code>{{ position }}</code>
+							pointer value: <code>{{ memory[ptr] }}</code>
 							<br>
-							pointer value: <code>{{ memory[pointer] }}</code>
+							pointer position: <code>{{ ptr }}</code>
 							<br>
-							pointer position: <code>{{ pointer }}</code>
+							current memory: <code v-html="memDisplay"></code>
 						</p>
-						<button class="step" v-if="!fast && running" @click="step">next
-							step</button>
+						<button class="step" v-if="!fast && running" @click="step">
+							next step
+						</button>
 					</div>
 					<pre>{{ output }}</pre>
 				</div>
