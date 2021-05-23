@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- hi -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<meta name="author" content="cubedhuang">
+		<meta name="description" content="more experiments">
+		<meta name="keywords" content="brainf***, esoteric, programming, language">
+		<meta name="theme-color" content="#d63031">
+
+		<meta property="og:title" content="cubedhuang">
+		<meta property="description" content="web experiments">
+		<meta property="og:description" content="web experiments">
+		<meta property="og:url" content="https://cubedhuang.com/">
+		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
+
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="canonical" href="https://cubedhuang.com/extras/fun/brainf/">
+		<link rel="author" href="https://cubedhuang.com/">
+		<link rel="publisher" href="https://cubedhuang.com/">
+
+		<title>brainf***</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107754281-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-107754281-2');
+		</script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+			data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+
+		<script defer src="./home.js"></script>
+	</head>
+
+	<body>
+		<section class="top">
+			<h1>brainf***</h1>
+		</section>
+
+		<section id="app">
+			<div class="row">
+				<div class="col">
+					<h3>input</h3>
+					<textarea name="input" id="input" v-model="input"
+						:class="running ? 'red-select' : ''" :readonly="running"></textarea>
+					<button class="calculate" @click="run(true)">run program quickly</button>
+					<button class="calculate" @click="run(false)">run program step-by-step</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h3>Output</h3>
+					<div class="info">
+						<p>
+							instructions done: <code>{{ steps }}</code>
+							<br>
+							latest instruction: <code>{{ instruction }}</code>
+							<br>
+							instruction position: <code>{{ position }}</code>
+							<br>
+							pointer value: <code>{{ memory[pointer] }}</code>
+							<br>
+							pointer position: <code>{{ pointer }}</code>
+						</p>
+						<button class="step" v-if="!fast && running" @click="step">next
+							step</button>
+					</div>
+					<pre>{{ output }}</pre>
+				</div>
+			</div>
+		</section>
+
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
