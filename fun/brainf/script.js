@@ -109,8 +109,7 @@ const debug = Vue.createApp({
 						"Enter the input: (type quit if you need to abort)"
 					);
 					if (answer === "quit") this.running = false;
-					this.memory[this.ptr] =
-						prompt("Enter the input:")?.charCodeAt?.(0) || 0;
+					this.memory[this.ptr] = answer?.charCodeAt?.(0) || 0;
 				},
 				"[": () => {
 					if (this.memory[this.ptr] !== 0) return;
