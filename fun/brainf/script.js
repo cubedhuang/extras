@@ -158,7 +158,10 @@ const debug = Vue.createApp({
 				this.instruction = instruction;
 				this.steps++;
 			}
-			while (!KEYS.includes(this.input[++this.pos])) {}
+			while (
+				!KEYS.includes(this.input[++this.pos]) &&
+				this.input[this.pos] !== undefined
+			) {}
 
 			if (!this.fast)
 				this.memDisplay = Object.entries(this.memory)
