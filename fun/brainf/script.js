@@ -75,6 +75,8 @@ const debug = Vue.createApp({
 		step() {
 			if (!this.running) return;
 
+			const KEYS = "><+-.,[]".split("");
+
 			const textarea = document.getElementById("input");
 			textarea.focus();
 			textarea.setSelectionRange(this.pos, this.pos + 1);
@@ -156,7 +158,7 @@ const debug = Vue.createApp({
 				this.instruction = instruction;
 				this.steps++;
 			}
-			this.pos++;
+			while (!KEYS.includes(this.input[++this.pos])) {}
 
 			if (!this.fast)
 				this.memDisplay = Object.entries(this.memory)

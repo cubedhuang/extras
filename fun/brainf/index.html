@@ -115,9 +115,8 @@
 							<br>
 							pointer position: <code>{{ ptr }}</code>
 							<br>
-							current memory:
+							memory usage:
 							<code class="memlength">{{ memory.length }}</code>
-							<code v-html="memDisplay"></code>
 						</p>
 						<button class="step" v-if="!fast && running" @click="step">
 							next step
@@ -129,6 +128,9 @@
 							<template v-if="paused">continue</template>
 							<template v-else>pause</template>
 						</button>
+					</div>
+					<div>
+						memory:<br><code v-html="memDisplay"></code>
 					</div>
 					<pre>{{ output }}</pre>
 				</div>
