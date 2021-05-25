@@ -118,11 +118,11 @@
 							memory usage:
 							<code class="memlength">{{ memory.length }}</code>
 						</p>
+						<button class="step" v-if="running" @click="abort">
+							abort
+						</button>
 						<button class="step" v-if="!fast && running" @click="step">
 							next step
-						</button>
-						<button class="step" v-if="fast && running" @click="running = false">
-							abort
 						</button>
 						<button class="step" v-if="fast && running" @click="paused = !paused">
 							<template v-if="paused">continue</template>
@@ -139,6 +139,11 @@
 					<pre>{{ output }}</pre>
 					</p>
 				</div>
+			</div>
+
+			<div class="awaiting" v-if="awaiting">
+				awaiting keyboard input...
+				<button @click="empty">input null</button>
 			</div>
 		</section>
 

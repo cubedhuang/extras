@@ -9,6 +9,7 @@ const debug = Vue.createApp({
 		memDisplay: "0",
 		sliderSpeed: 0,
 		paused: false,
+		awaiting: false,
 
 		instruction: "?",
 		memory: [0],
@@ -20,6 +21,15 @@ const debug = Vue.createApp({
 		speed() {
 			return Math.round(2 ** this.sliderSpeed * 10) / 10;
 		}
+	},
+
+	created() {
+		window.addEventListener("keypress", e => {
+			if (this.awaiting && e.key.length === 1) {
+				this.memory[this.ptr] = e.key.charCodeAt(0);
+				this.awaiting = false;
+			}
+		});
 	},
 
 	methods: {
@@ -37,6 +47,7 @@ const debug = Vue.createApp({
 			this.fast = fast;
 			this.steps = 0;
 			this.paused = false;
+			this.awaiting = false;
 
 			this.instruction = "?";
 			this.memory = [0];
@@ -73,7 +84,7 @@ const debug = Vue.createApp({
 		},
 
 		step() {
-			if (!this.running) return;
+			if (!this.running || this.awaiting) return;
 
 			const KEYS = "><+-.,[]".split("");
 
@@ -108,11 +119,7 @@ const debug = Vue.createApp({
 					this.output += String.fromCodePoint(this.memory[this.ptr]);
 				},
 				",": () => {
-					const answer = prompt(
-						"Enter the input: (type quit if you need to abort)"
-					);
-					if (answer === "quit") this.running = false;
-					this.memory[this.ptr] = answer?.charCodeAt?.(0) || 0;
+					this.awaiting = true;
 				},
 				"[": () => {
 					if (this.memory[this.ptr] !== 0) return;
@@ -170,6 +177,16 @@ const debug = Vue.createApp({
 						i === this.ptr ? `<span class="ptr">${v[1]}</span>` : `${v[1]}`
 					)
 					.join(" ");
+		},
+
+		abort() {
+			this.running = false;
+			this.awaiting = false;
+		},
+
+		empty() {
+			this.memory[this.ptr] = 0;
+			this.awaiting = false;
 		}
 	}
 }).mount("#app");
