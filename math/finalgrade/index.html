@@ -5,8 +5,43 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<title>final grade calculator</title>
+		<meta name="author" content="cubedhuang">
+		<meta name="description"
+			content="Just enter a few values to see the threshold you'll need to get on your final!">
+		<meta name="keywords"
+			content="final grade, final grade calc, final grade calculator, final calculator, finals calculator, calculator for finals, final grade booster, booster for finals, gpa calculator, gpa final calculator, final gpa, class final, class calculator, class test calculator, test calculator, grade calculator, grade calc">
+		<meta name="theme-color" content="#d63031">
+
+		<meta property="og:title" content="Final Grade Calculator">
+		<meta property="description"
+			content="Just enter a few values to see the threshold you'll need to get on your final!">
+		<meta property="og:description"
+			content="Just enter a few values to see the threshold you'll need to get on your final!">
+		<meta property="og:url" content="https://cubedhuang.com/">
+		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
+
+		<link rel="shortcut icon" href="/favicon.ico">
+
 		<link rel="stylesheet" href="../../style.css">
+		<link rel="canonical" href="https://cubedhuang.com/extras/math/finalgrade">
+		<link rel="author" href="https://cubedhuang.com/">
+		<link rel="publisher" href="https://cubedhuang.com/">
+
+		<title>final grade calculator</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107754281-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-107754281-2');
+		</script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+			data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
 
 		<style>
 			input {
@@ -18,42 +53,36 @@
 
 	<body>
 		<section class="top">
-			<h1>final grade calculator</h1>
+			<h1>Final Grade Calculator</h1>
 		</section>
 
 		<section>
 			<div class="row">
 				<div class="col">
 					<p>
-						i do the math with variables and plug them in so that i dont have to do that
-						math with actual numbers
-					</p>
-					<p>
-						put all the values in percentages
-					</p>
-					<p>
-						i havent done anything for weird infinity NaN edge cases yet
+						Just enter a few values to see the threshold you'll need to get on your
+						final!
 					</p>
 
 					<p>
-						your current grade:
+						Your current grade:
 						<br>
 						<input type="number" name="current" id="current"
 							placeholder="80? 90? 95? 14?">
 					</p>
 					<p>
-						the grade you want:
+						The grade you want:
 						<br>
 						<input type="number" name="wanted" id="wanted" placeholder="90? 95?">
 					</p>
 					<p>
-						how much your final grade is worth:
+						How much your final grade is worth:
 						<br>
 						<input type="number" name="amount" id="amount" placeholder="10? 15? 20?">
 					</p>
 
 					<p>
-						<button onclick="calculate()">calculate</button>
+						<button onclick="calculate()">Calculate</button>
 					</p>
 
 					<p id="output"></p>
@@ -77,7 +106,7 @@
 
 				const finalReq = newReqPerc * (100 / amount)
 
-				outputEl.textContent = `you need to score a ${finalReq.toFixed(2)}% on your final!`;
+				outputEl.textContent = `You need to score a ${finalReq.toFixed(2)}% on your final!`;
 			}
 		</script>
 	</body>
