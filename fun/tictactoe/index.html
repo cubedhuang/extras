@@ -31,8 +31,8 @@
 			<template v-if="started">
 				<div class="row">
 					<h4>
-						You are {{ symbol(player) }}. <br>
-						Computer is {{ symbol(computer) }}.
+						You are {{ letter(player) }}. <br>
+						Computer is {{ letter(computer) }}.
 					</h4>
 				</div>
 
@@ -49,7 +49,7 @@
 
 				<div class="row" v-if="!inGame">
 					<div class="col">
-						<h2 v-if="winner > 0">{{ symbol(winner) }} Wins!</h2>
+						<h2 v-if="winner > 0">{{ letter(winner) }} Wins!</h2>
 						<h2 v-else>It's a tie!</h2>
 					</div>
 					<div class="col chooser">

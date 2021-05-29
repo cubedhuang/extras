@@ -18,7 +18,7 @@ const debug = new Vue({
 				this.botMove();
 			}
 		},
-		symbol(a) {
+		letter(a) {
 			switch (a) {
 				case 0:
 					return "";
@@ -26,6 +26,16 @@ const debug = new Vue({
 					return "X";
 				case 2:
 					return "O";
+			}
+		},
+		symbol(a) {
+			switch (a) {
+				case 0:
+					return "";
+				case 1:
+					return "✕";
+				case 2:
+					return "◯";
 			}
 		},
 		mark(space) {

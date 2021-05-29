@@ -8,15 +8,16 @@
 }
 
 .board {
-	width: 60%;
+	width: 17em;
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .space {
-	height: 2em;
-	font-size: 3rem;
+	/* height: 2em; */
+	aspect-ratio: 1 / 1;
+	font-size: 2rem;
 	border-radius: 0;
 	box-shadow: none;
 	margin: 0;
