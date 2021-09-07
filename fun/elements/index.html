@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- hi -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<meta name="author" content="cubedhuang">
+		<meta name="description" content="learn elements by typing stuff">
+		<meta name="keywords" content="elements, testing">
+		<meta name="theme-color" content="#d63031">
+
+		<meta property="og:title" content="elements">
+		<meta property="description" content="testing">
+		<meta property="og:description" content="testing">
+		<meta property="og:url" content="https://cubedhuang.com/">
+		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
+
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<link rel="stylesheet" href="style.css">
+		<link rel="canonical" href="https://cubedhuang.com/extras/misc/elements/">
+		<link rel="author" href="https://cubedhuang.com/">
+		<link rel="publisher" href="https://cubedhuang.com/">
+
+		<title>Elements</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107754281-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-107754281-2');
+		</script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+			data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	</head>
+
+	<body>
+		<div class="element" id="element">Loading...</div>
+		<input type="text" class="answer" id="answer" placeholder="">
+
+		<div id="toggles" class="toggles">
+			<button id="answer-with">answering with name</button>
+
+			<h3>elements to include:</h3>
+
+			<div>
+				<input type="checkbox" id="1-38" checked="checked">
+				<label for="1-38"> 1-38</label>
+			</div>
+			<div>
+				<input type="checkbox" id="others">
+				<label for="others"> 42, 46-57, 74, 78-89, 92-94</label>
+			</div>
+			<div>
+				<input type="checkbox" id="all">
+				<label for="all"> all 118 elements</label>
+			</div>
+		</div>
+
+		<script src="./script.js"></script>
+	</body>
+</html>
