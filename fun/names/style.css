@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+:root {
+	--base: rgb(16, 22, 75);
+	font-size: max(min(1.2vw, 20px), 10px);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: "Lexend Deca", system-ui;
+}
+
+body {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	background: var(--base);
+}
+
+.container {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: center;
+	width: calc(100% - 4em);
+}
+
+button {
+	font: inherit;
+	padding: 0.5em 1em;
+	border: 0.125em solid white;
+	border-radius: 0.25em;
+	background: inherit;
+	color: white;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+button:hover,
+button:focus-visible {
+	background: white;
+	color: var(--base);
+}
+
+button:focus-visible {
+	outline: 0.2em solid white;
+	outline-offset: 0.2em;
+}
+
+#name {
+	font-size: 2rem;
+	font-family: Consolas, Monaco, monospace;
+	word-wrap: break-word;
+	width: 100%;
+}
