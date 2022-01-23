@@ -8,7 +8,17 @@ const prefixes = [
 	"Interruptible",
 	"Cached",
 	"Observable",
-	"Immutable"
+	"Immutable",
+	"Persistent",
+	"Lazy",
+	"Shared",
+	"Volatile",
+	"Virtual",
+	"Internal",
+	"Immediate",
+	"Concurrent",
+	"Native",
+	"External"
 ];
 
 const objects = [
@@ -35,13 +45,13 @@ const objects = [
 	"Application",
 	"Service",
 	"Module",
-	"Plugin",
 	"Package",
 	"Library",
 	"Framework",
 	"Toolkit",
 	"Tool",
-	"Utility"
+	"Utility",
+	"Action"
 ];
 
 const suffixes = [
@@ -61,7 +71,13 @@ const suffixes = [
 	"Lock",
 	"Container",
 	"Listener",
-	"Handler"
+	"Plugin",
+	"Handler",
+	"Modifier",
+	"Router",
+	"Resolver",
+	"Validator",
+	"Finalizer"
 ];
 
 let outputName = "";
