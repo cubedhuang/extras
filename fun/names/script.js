@@ -18,7 +18,12 @@ const prefixes = [
 	"Immediate",
 	"Concurrent",
 	"Native",
-	"External"
+	"External",
+	"Bean",
+	"Anonymous",
+	"Dynamic",
+	"Strict",
+	"Transient"
 ];
 
 const objects = [
@@ -51,7 +56,9 @@ const objects = [
 	"Toolkit",
 	"Tool",
 	"Utility",
-	"Action"
+	"Action",
+	"Value",
+	"Validation"
 ];
 
 const suffixes = [
@@ -77,7 +84,15 @@ const suffixes = [
 	"Router",
 	"Resolver",
 	"Validator",
-	"Finalizer"
+	"Finalizer",
+	"Definition",
+	"Strategy",
+	"Bean",
+	"Exception",
+	"Initializer",
+	"Dispatcher",
+	"Stream",
+	"Collector"
 ];
 
 let outputName = "";
