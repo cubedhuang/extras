@@ -83,12 +83,14 @@ const suffixes = [
 let outputName = "";
 
 const randint = (low, high) => Math.floor(Math.random() * (high - low) + low);
-const pick = array => array[randint(0, array.length)];
-const maybe = array => {
-	if (Math.random() < 0.5) return "";
-	const p = pick(array);
+const pick = array => {
+	const p = array[randint(0, array.length)];
 	if (outputName.indexOf(p) === -1) return p;
 	return "";
+};
+const maybe = array => {
+	if (Math.random() < 0.5) return "";
+	return pick(array);
 };
 
 function forX(x, f) {
