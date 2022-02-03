@@ -102,9 +102,6 @@ button:focus-visible {
 	outline-offset: 0.2em;
 }
 
-/* #name {
-	font-size: 2rem;
-	font-family: Consolas, Monaco, monospace;
-	word-wrap: break-word;
-	width: 100%;
-} */
+#result {
+	margin-bottom: 2em;
+}
