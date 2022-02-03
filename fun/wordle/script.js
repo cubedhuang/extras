@@ -59,13 +59,15 @@ async function start() {
 			good.push(new RegExp(`${l}`));
 		}
 
-		$result.innerHTML = words
+		const result = words
 			.filter(
 				word =>
 					bad.every(r => !r.test(word)) &&
 					good.every(r => r.test(word))
 			)
 			.join("<br>");
+
+		$result.innerHTML = result || "No words were found! :(";
 	});
 }
 
