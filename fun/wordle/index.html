@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<meta name="author" content="cubedhuang">
+		<meta name="description" content="Wordle narrower!">
+		<meta name="keywords" content="wordle, narrow, solver, find, solve">
+		<meta name="theme-color" content="#d63031">
+
+		<meta property="og:title" content="Wordle Result Narrower">
+		<meta property="description" content="Wordle narrower!">
+		<meta property="og:description" content="Wordle narrower!">
+		<meta property="og:url" content="https://cubedhuang.com/">
+		<meta property="og:image" content="https://cubedhuang.com/images/logo.png">
+
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<link rel="stylesheet" href="style.css">
+		<link rel="canonical" href="https://cubedhuang.com/extras/fun/wordle/">
+		<link rel="author" href="https://cubedhuang.com/">
+		<link rel="publisher" href="https://cubedhuang.com/">
+
+		<title>Wordle Result Narrower</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107754281-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-107754281-2');
+		</script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+			data-cf-beacon='{"token": "52dcb98c1a10492682592c6cfe35319d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>Wordle Result Narrower</h1>
+
+			<p>
+				These words are copied from the actual Wordle list which may include some.. um.. bad
+				ones. Also, this isn't perfect &ndash; it doesn't account for the fact that letters
+				in the wrong position can't be in that position, but you can eliminate those
+				yourself 😜.
+			</p>
+
+			<h2>Letters with known positions:</h2>
+
+			<div class="letters">
+				<input type="text" class="letter" placeholder=".">
+				<input type="text" class="letter" placeholder=".">
+				<input type="text" class="letter" placeholder=".">
+				<input type="text" class="letter" placeholder=".">
+				<input type="text" class="letter" placeholder=".">
+			</div>
+
+			<h2>Letters in the wrong position:</h2>
+
+			<input type="text" id="unknown" placeholder="abcdefg...">
+
+			<h2>Letters eliminated:</h2>
+
+			<input type="text" id="eliminated" placeholder="hijklmnop...">
+
+			<p>
+				<button id="go">Go</button>
+			</p>
+
+			<h2>Result:</h2>
+
+			<div id="result"></div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

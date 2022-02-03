@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+:root {
+	--base: rgb(16, 22, 75);
+	font-size: max(min(1.2vw, 16px), 10px);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: "Lexend Deca", system-ui;
+}
+
+body {
+	min-height: 100vh;
+	background: var(--base);
+}
+
+.container {
+	display: block;
+	width: min(800px, calc(100% - 4em));
+	margin: 0 auto;
+	padding-top: 8em;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0 0 0.25em 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 1em 0 0.2em 0;
+	padding: 0;
+}
+
+.letters {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
+
+input {
+	font: inherit;
+	font-size: 1.2rem;
+	color: inherit;
+	border: 2px solid transparent;
+	border-radius: 0.1em;
+	background: #222;
+	transition: all 0.2s;
+	padding: 0.5em;
+}
+
+.letter {
+	font-size: 2rem;
+	width: 2em;
+	padding: 0.2em 0;
+	text-align: center;
+}
+
+input:focus {
+	outline: none;
+	border: 2px solid white;
+}
+
+.letter.used {
+	background: #538d4e;
+}
+
+#unknown.used {
+	background: #b59f3b;
+}
+
+button {
+	font: inherit;
+	padding: 0.5em 1em;
+	border: 0.125em solid white;
+	border-radius: 0.25em;
+	background: inherit;
+	color: white;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+button:hover,
+button:focus-visible {
+	background: white;
+	color: var(--base);
+}
+
+button:focus-visible {
+	outline: 0.2em solid white;
+	outline-offset: 0.2em;
+}
+
+/* #name {
+	font-size: 2rem;
+	font-family: Consolas, Monaco, monospace;
+	word-wrap: break-word;
+	width: 100%;
+} */
